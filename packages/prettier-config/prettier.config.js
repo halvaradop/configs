@@ -5,7 +5,6 @@ export const config = {
     semi: false,
     tabWidth: 4,
     printWidth: 120,
-    trailingComma: "es5",
     overrides: [
         {
             files: ["*.json", "*.md", "*.yaml", "*.yml"],
