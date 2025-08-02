@@ -1,5 +1,5 @@
 {
-  "name": "configs",
+  "name": "@halvaradop/configs",
   "private": true,
   "scripts": {
     "build": "turbo run build",
