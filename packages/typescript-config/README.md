@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/@halvaradop/typescript-config.svg)](https://www.npmjs.com/package/@halvaradop/typescript-config)
 [![license](https://img.shields.io/npm/l/@halvaradop/typescript-config.svg)](https://github.com/halvaradop/configs/blob/master/LICENSE)
 
-A shareable TypeScript configuration that supports the configuration for `TypeScript Default Project`, `React` and `Next.js` templates. This package ensure correct configuration between the type of the project.
+A shareable TypeScript configuration that supports `TypeScript Default Project`, `React`, and `Next.js` templates. This package ensures correct configuration based on the type of project.
 
 > This package is part of the [@halvaradop/configs](https://github.com/halvaradop/configs) monorepo, providing standardized configurations for various development tools.
 
@@ -28,7 +28,7 @@ yarn add -D @halvaradop/typescript-config
 
 ### Basic Setup
 
-Create a `tsconfig.json` file in your project root and import the TypeScript configuration according with your requerements
+Create a `tsconfig.json` file in your project root and import the TypeScript configuration according to your requirements:
 
 ```json
 {
@@ -42,7 +42,7 @@ Create a `tsconfig.json` file in your project root and import the TypeScript con
 
 ### React Setup
 
-Import the React configuration using your `tsconfig.json` file in your project root
+Import the React configuration using your `tsconfig.json` file in your project root:
 
 ```json
 {
@@ -53,7 +53,7 @@ Import the React configuration using your `tsconfig.json` file in your project r
 
 ### Next.js Setup
 
-Import the Next.js Configuration using your `tsconfig.json` file in your project root
+Import the Next.js configuration using your `tsconfig.json` file in your project root:
 
 ```json
 {
@@ -62,7 +62,7 @@ Import the Next.js Configuration using your `tsconfig.json` file in your project
 }
 ```
 
-## Script
+## Scripts
 
 Add these scripts to your `package.json` for easy formatting:
 
@@ -83,3 +83,11 @@ This package is part of the `@halvaradop/configs` ecosystem:
 
 - [`@halvaradop/eslint-config`](https://github.com/halvaradop/configs/tree/master/packages/eslint-config) - ESLint configuration
 - [`@halvaradop/prettier-config`](https://github.com/halvaradop/configs/tree/master/packages/prettier-config) - Prettier configuration
+
+## License
+
+MIT © [Hernan Alvarado](https://github.com/halvaradop)
+
+---
+
+For more information about Prettier configuration options, visit the [official Prettier documentation](https://prettier.io/docs/en/configuration.html).
