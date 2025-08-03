@@ -1,0 +1,29 @@
+{
+  "name": "@halvaradop/prettier-config",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Prettier configuration for @halvaradop projects",
+  "type": "module",
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "keywords": [
+    "prettier",
+    "configuration",
+    "halvaradop",
+    "code style",
+    "formatting"
+  ],
+  "author": "Hernan Alvarado <hernanvid123@gmail.com>",
+  "license": "MIT",
+  "exports": {
+    ".": "./prettier.config.js"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  },
+  "peerDependencies": {
+    "prettier": "^2.0.0"
+  }
+}
