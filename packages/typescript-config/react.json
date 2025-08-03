@@ -4,9 +4,9 @@
   "compilerOptions": {
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "noEmit": true,
-    "incremental": true,
-    "plugins": [{ "name": "next" }]
+    "useDefineForClassFields": true,
+    "allowImportingTsExtensions": true
   }
 }
