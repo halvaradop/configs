@@ -1,7 +1,7 @@
 # @halvaradop/prettier-config
 
 [![npm version](https://img.shields.io/npm/v/@halvaradop/prettier-config.svg)](https://www.npmjs.com/package/@halvaradop/prettier-config)
-[![license](https://img.shields.io/npm/l/@halvaradop/prettier-config.svg)](https://github.com/halvaradop/configs/blob/main/LICENSE)
+[![license](https://img.shields.io/npm/l/@halvaradop/prettier-config.svg)](https://github.com/halvaradop/configs/blob/master/LICENSE)
 
 A shareable Prettier configuration for formatting `JavaScript`, `TypeScript`, `JSON`, `Markdown`, and `YAML` files across projects. This package ensures consistent formatting and code style throughout your development workflow.
 
