@@ -14,5 +14,8 @@
     "halvaradop"
   ],
   "author": "Hernan Alvarado <hernanvid123@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
 }

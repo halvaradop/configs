@@ -113,7 +113,7 @@ Add these scripts to your `package.json` for easy formatting:
 This package is part of the `@halvaradop/configs` ecosystem:
 
 - [`@halvaradop/eslint-config`](https://github.com/halvaradop/configs/tree/master/packages/eslint-config) - ESLint configuration
-- [`@halvaradop/tsconfig`](https://github.com/halvaradop/configs/tree/master/packages/tsconfig) - TypeScript configuration
+- [`@halvaradop/tsconfig`](https://github.com/halvaradop/configs/tree/master/packages/typescript-config) - TypeScript configuration
 
 ## License
 
