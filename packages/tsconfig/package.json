@@ -1,0 +1,23 @@
+{
+  "name": "@halvaradop/tsconfig",
+  "version": "1.0.0",
+  "private": false,
+  "description": "Reusable TypeScript configuration presets for @halvaradop projects.",
+  "type": "module",
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "keywords": [
+    "typescript",
+    "tsconfig",
+    "configuration",
+    "preset",
+    "halvaradop"
+  ],
+  "author": "Hernan Alvarado <hernanvid123@gmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
