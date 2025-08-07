@@ -1,8 +1,8 @@
 {
-  "name": "@halvaradop/typescript-config",
-  "version": "0.1.0",
+  "name": "@halvaradop/tsconfig",
+  "version": "1.0.0",
   "private": false,
-  "description": "TypeScript configuration for @halvaradop projects",
+  "description": "Reusable TypeScript configuration presets for @halvaradop projects.",
   "type": "module",
   "scripts": {
     "format": "prettier --write .",
@@ -10,7 +10,9 @@
   },
   "keywords": [
     "typescript",
+    "tsconfig",
     "configuration",
+    "preset",
     "halvaradop"
   ],
   "author": "Hernan Alvarado <hernanvid123@gmail.com>",
