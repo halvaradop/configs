@@ -63,7 +63,11 @@ importers:
         specifier: ^3.6.2
         version: 3.6.2
 
-  packages/typescript-config: {}
+  packages/typescript-config:
+    dependencies:
+      typescript:
+        specifier: ^5.0.0
+        version: 5.8.3
 
 packages:
 
