@@ -1,0 +1,31 @@
+{
+  "name": "@halvaradop/tsup-config",
+  "version": "1.0.0",
+  "private": false,
+  "description": "Reusable tsup build configuration for @halvaradop projects.",
+  "type": "module",
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "keywords": [
+    "tsup",
+    "typescript",
+    "javascript",
+    "@halvaradop",
+    "build",
+    "config",
+    "bundler"
+  ],
+  "author": "Hernan Alvarado <hernanvid123@gmail.com>",
+  "license": "MIT",
+  "exports": {
+    ".": "./tsup.config.js"
+  },
+  "devDependencies": {
+    "tsup": "^8.3.6"
+  },
+  "peerDependencies": {
+    "tsup": "^8.0.0"
+  }
+}
