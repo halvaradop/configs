@@ -1,8 +1,8 @@
 {
   "name": "@halvaradop/prettier-config",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": false,
-  "description": "Prettier configuration for @halvaradop projects",
+  "description": "Shared Prettier configuration for all @halvaradop projects.",
   "type": "module",
   "scripts": {
     "format": "prettier --write .",
@@ -10,9 +10,9 @@
   },
   "keywords": [
     "prettier",
-    "configuration",
+    "config",
     "halvaradop",
-    "code style",
+    "code-style",
     "formatting"
   ],
   "author": "Hernan Alvarado <hernanvid123@gmail.com>",
