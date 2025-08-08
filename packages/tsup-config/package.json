@@ -10,6 +10,14 @@
     "lint": "eslint . --cache --cache-location .cache/.eslintcache",
     "lint:fix": "eslint . --fix --cache --cache-location .cache/.eslintcache"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/halvaradop/configs.git"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/@halvaradop/tsup-config"
+  },
   "keywords": [
     "tsup",
     "typescript",

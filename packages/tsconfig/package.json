@@ -8,6 +8,14 @@
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/halvaradop/configs.git"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/@halvaradop/tsconfig"
+  },
   "keywords": [
     "typescript",
     "tsconfig",
