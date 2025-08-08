@@ -7,11 +7,13 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
     "format": "prettier --write .",
     "check-types": "turbo run check-types"
   },
   "devDependencies": {
     "@halvaradop/prettier-config": "workspace:*",
+    "@halvaradop/eslint-config": "workspace:*",
     "prettier": "^3.6.2",
     "turbo": "^2.5.5",
     "typescript": "5.8.3"
