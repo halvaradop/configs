@@ -1,4 +1,4 @@
-# @halvaradop/prettier-config
+# `@halvaradop/prettier-config`
 
 [![npm version](https://img.shields.io/npm/v/@halvaradop/prettier-config.svg)](https://www.npmjs.com/package/@halvaradop/prettier-config)
 [![license](https://img.shields.io/npm/l/@halvaradop/prettier-config.svg)](https://github.com/halvaradop/configs/blob/master/LICENSE)
@@ -114,10 +114,15 @@ This package is part of the `@halvaradop/configs` ecosystem:
 
 - [`@halvaradop/eslint-config`](https://github.com/halvaradop/configs/tree/master/packages/eslint-config) - ESLint configuration
 - [`@halvaradop/tsconfig`](https://github.com/halvaradop/configs/tree/master/packages/tsconfig) - TypeScript configuration
+- [`@halvaradop/tsup`](https://github.com/halvaradop/configs/tree/master/packages/tsup-config) - Tsup configuration
 
 ## License
 
 MIT © [Hernan Alvarado](https://github.com/halvaradop)
+
+## Changelog
+
+See [CHANGELOG.md](https://github.com/halvaradop/configs/blob/master/packages/prettier-config/CHANGELOG.md) for details about changes in each version.
 
 ---
 

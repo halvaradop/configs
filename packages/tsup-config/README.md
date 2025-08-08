@@ -1,4 +1,4 @@
-# @halvaradop/tsup-config
+# `@halvaradop/tsup-config`
 
 [![npm version](https://img.shields.io/npm/v/@halvaradop/tsup-config.svg)](https://www.npmjs.com/package/@halvaradop/tsup-config)
 [![license](https://img.shields.io/npm/l/@halvaradop/tsup-config.svg)](https://github.com/halvaradop/configs/blob/master/LICENSE)
@@ -98,6 +98,10 @@ Explore other configurations in the `@halvaradop/configs` ecosystem:
 ## License
 
 MIT © [Hernan Alvarado](https://github.com/halvaradop)
+
+## Changelog
+
+See [CHANGELOG.md](https://github.com/halvaradop/configs/blob/master/packages/tsup-config/CHANGELOG.md) for details about changes in each version.
 
 ---
 

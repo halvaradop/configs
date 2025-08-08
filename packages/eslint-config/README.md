@@ -1,4 +1,4 @@
-# @halvaradop/eslint-config
+# `@halvaradop/eslint-config`
 
 [![npm version](https://img.shields.io/npm/v/@halvaradop/eslint-config.svg)](https://www.npmjs.com/package/@halvaradop/eslint-config)
 [![license](https://img.shields.io/npm/l/@halvaradop/eslint-config.svg)](https://github.com/halvaradop/configs/blob/main/LICENSE)
@@ -188,8 +188,9 @@ Ensure your `tsconfig.json` is properly configured:
 
 This package is part of the `@halvaradop/configs` ecosystem:
 
-- [`@halvaradop/prettier-config`](https://github.com/halvaradop/configs/tree/main/packages/prettier-config) - Prettier configuration
-- [`@halvaradop/tsconfig`](https://github.com/halvaradop/configs/tree/main/packages/tsconfig) - TypeScript configuration
+- [`@halvaradop/prettier-config`](https://github.com/halvaradop/configs/tree/master/packages/prettier-config) - Prettier configuration
+- [`@halvaradop/tsconfig`](https://github.com/halvaradop/configs/tree/master/packages/tsconfig) - TypeScript configuration
+- [`@halvaradop/tsup`](https://github.com/halvaradop/configs/tree/master/packages/tsup-config) - Tsup configuration
 
 ## License
 
@@ -197,7 +198,7 @@ MIT © [Hernan Alvarado](https://github.com/halvaradop)
 
 ## Changelog
 
-See [CHANGELOG.md](https://github.com/halvaradop/configs/blob/main/packages/eslint-config/CHANGELOG.md) for details about changes in each version.
+See [CHANGELOG.md](https://github.com/halvaradop/configs/blob/master/packages/eslint-config/CHANGELOG.md) for details about changes in each version.
 
 ---
 

@@ -1,7 +1,7 @@
-# @halvaradop/typescript-config
+# `@halvaradop/tsconfig`
 
-[![npm version](https://img.shields.io/npm/v/@halvaradop/typescript-config.svg)](https://www.npmjs.com/package/@halvaradop/typescript-config)
-[![license](https://img.shields.io/npm/l/@halvaradop/typescript-config.svg)](https://github.com/halvaradop/configs/blob/master/LICENSE)
+[![npm version](https://img.shields.io/npm/v/@halvaradop/tsconfig.svg)](https://www.npmjs.com/package/@halvaradop/tsconfig)
+[![license](https://img.shields.io/npm/l/@halvaradop/tsconfig.svg)](https://github.com/halvaradop/configs/blob/master/LICENSE)
 
 A shareable TypeScript configuration that supports `TypeScript Default Project`, `React`, and `Next.js` templates. This package ensures correct configuration based on the type of project.
 
@@ -13,13 +13,13 @@ Install the package as a development dependency in your project:
 
 ```bash
 # Using pnpm (recommended)
-pnpm add -D @halvaradop/typescript-config
+pnpm add -D @halvaradop/tsconfig
 
 # Using npm
-npm install -D @halvaradop/typescript-config
+npm install -D @halvaradop/tsconfig
 
 # Using yarn
-yarn add -D @halvaradop/typescript-config
+yarn add -D @halvaradop/tsconfig
 ```
 
 > **Note**: This package requires TypeScript ^5.0.0 as a peer dependency.
@@ -32,7 +32,7 @@ Create a `tsconfig.json` file in your project root and import the TypeScript con
 
 ```json
 {
-  "extends": "@halvaradop/typescript-config/tsconfig.base.json",
+  "extends": "@halvaradop/tsconfig/tsconfig.base.json",
   "compilerOptions": {
     "outDir": "./dist"
   },
@@ -46,7 +46,7 @@ Import the React configuration using your `tsconfig.json` file in your project r
 
 ```json
 {
-  "extends": "@halvaradop/typescript-config/react.json",
+  "extends": "@halvaradop/tsconfig/react.json",
   "exclude": ["node_modules"]
 }
 ```
@@ -57,7 +57,7 @@ Import the Next.js configuration using your `tsconfig.json` file in your project
 
 ```json
 {
-  "extends": "@halvaradop/typescript-config/nextjs.json",
+  "extends": "@halvaradop/tsconfig/nextjs.json",
   "exclude": ["node_modules"]
 }
 ```
@@ -83,11 +83,16 @@ This package is part of the `@halvaradop/configs` ecosystem:
 
 - [`@halvaradop/eslint-config`](https://github.com/halvaradop/configs/tree/master/packages/eslint-config) - ESLint configuration
 - [`@halvaradop/prettier-config`](https://github.com/halvaradop/configs/tree/master/packages/prettier-config) - Prettier configuration
+- [`@halvaradop/tsup-config`](https://github.com/halvaradop/configs/tree/master/packages/tsup-config) - Tsup configuration
 
 ## License
 
 MIT © [Hernan Alvarado](https://github.com/halvaradop)
 
+## Changelog
+
+See [CHANGELOG.md](https://github.com/halvaradop/configs/blob/master/packages/tsconfig/CHANGELOG.md) for details about changes in each version.
+
 ---
 
-For more information about Prettier configuration options, visit the [official Prettier documentation](https://prettier.io/docs/en/configuration.html).
+For comprehensive details on TypeScript configuration options, refer to the [official TypeScript documentation](https://www.typescriptlang.org/tsconfig).
