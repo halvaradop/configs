@@ -1,6 +1,5 @@
 {
   "$schema": "https://turborepo.com/schema.json",
-  "ui": "tui",
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
@@ -8,7 +7,14 @@
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "lint": {
-      "dependsOn": ["^lint"]
+      "dependsOn": ["^lint"],
+      "outputs": ["./cache/.eslintcache"],
+      "outputLogs": "new-only"
+    },
+    "lint:fix": {
+      "dependsOn": ["^lint:fix"],
+      "outputs": ["./cache/.eslintcache"],
+      "outputLogs": "new-only"
     },
     "check-types": {
       "dependsOn": ["^check-types"]
@@ -17,5 +23,7 @@
       "cache": false,
       "persistent": true
     }
-  }
+  },
+  "ui": "tui",
+  "cacheDir": ".turbo/cache"
 }
