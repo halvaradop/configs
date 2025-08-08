@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "@halvaradop/prettier-config": "workspace:*",
+    "@halvaradop/eslint-config": "workspace:*",
     "prettier": "^3.6.2",
     "turbo": "^2.5.5",
     "typescript": "5.8.3"
