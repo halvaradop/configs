@@ -7,7 +7,7 @@ export const config = {
     printWidth: 120,
     overrides: [
         {
-            files: ["*.json", "*.md", "*.yaml", "*.yml"],
+            files: ["*.json", "*.md", "*.mdx", "*.yaml", "*.yml", "*.toml"],
             options: {
                 tabWidth: 2,
             },
