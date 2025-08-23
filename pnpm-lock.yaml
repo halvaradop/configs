@@ -80,6 +80,9 @@ importers:
 
   packages/tsup-config:
     devDependencies:
+      '@halvaradop/tsconfig':
+        specifier: workspace:*
+        version: link:../tsconfig
       tsup:
         specifier: ^8.3.6
         version: 8.5.0(typescript@5.8.3)
