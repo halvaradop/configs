@@ -5,6 +5,7 @@
   "description": "Reusable tsup build configuration for @halvaradop projects.",
   "type": "module",
   "scripts": {
+    "build": "tsup tsup.config.ts",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint . --cache --cache-location .cache/.eslintcache",
@@ -30,10 +31,15 @@
   "author": "Hernan Alvarado <hernanvid123@gmail.com>",
   "license": "MIT",
   "exports": {
-    ".": "./tsup.config.js"
+    ".": {
+      "types": "./dist/tsup.config.d.ts",
+      "require": "./dist/tsup.config.cjs",
+      "import": "./dist/tsup.config.js"
+    }
   },
   "devDependencies": {
-    "tsup": "^8.3.6"
+    "tsup": "^8.3.6",
+    "@halvaradop/tsconfig": "workspace:*"
   },
   "peerDependencies": {
     "tsup": "^8.0.0"
