@@ -4,11 +4,15 @@
   "private": false,
   "description": "Shared Prettier configuration for all @halvaradop projects.",
   "type": "module",
+  "main": "dist/prettier.config.js",
+  "types": "dist/prettier.config.d.ts",
   "scripts": {
+    "build": "tsup prettier.config.js && pnpm clean:cts",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint . --cache --cache-location .cache/.eslintcache",
-    "lint:fix": "eslint . --fix --cache --cache-location .cache/.eslintcache"
+    "lint:fix": "eslint . --fix --cache --cache-location .cache/.eslintcache",
+    "clean:cts": "rm -rf ./dist/*.d.cts"
   },
   "repository": {
     "type": "git",
@@ -27,11 +31,10 @@
   ],
   "author": "Hernan Alvarado <hernanvid123@gmail.com>",
   "license": "MIT",
-  "exports": {
-    ".": "./prettier.config.js"
-  },
   "devDependencies": {
-    "prettier": "^3.6.2"
+    "prettier": "^3.6.2",
+    "@halvaradop/tsconfig": "workspace:*",
+    "@halvaradop/tsup-config": "workspace:*"
   },
   "peerDependencies": {
     "prettier": "^2.0.0"

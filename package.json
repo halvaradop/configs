@@ -12,15 +12,15 @@
     "check-types": "turbo run check-types"
   },
   "devDependencies": {
-    "@halvaradop/prettier-config": "workspace:*",
     "@halvaradop/eslint-config": "workspace:*",
+    "@halvaradop/prettier-config": "workspace:*",
     "prettier": "^3.6.2",
+    "tsup": "^8.3.6",
     "turbo": "^2.5.5",
     "typescript": "5.8.3"
   },
   "packageManager": "pnpm@9.0.0",
   "engines": {
     "node": ">=18"
-  },
-  "prettier": "@halvaradop/prettier-config"
+  }
 }
