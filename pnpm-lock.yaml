@@ -17,6 +17,9 @@ importers:
       prettier:
         specifier: ^3.6.2
         version: 3.6.2
+      tsup:
+        specifier: ^8.3.6
+        version: 8.5.0(typescript@5.8.3)
       turbo:
         specifier: ^2.5.5
         version: 2.5.5
@@ -68,6 +71,12 @@ importers:
 
   packages/prettier-config:
     devDependencies:
+      '@halvaradop/tsconfig':
+        specifier: workspace:*
+        version: link:../tsconfig
+      '@halvaradop/tsup-config':
+        specifier: workspace:*
+        version: link:../tsup-config
       prettier:
         specifier: ^3.6.2
         version: 3.6.2
@@ -1502,6 +1511,7 @@ packages:
   source-map@0.8.0-beta.0:
     resolution: {integrity: sha512-2ymg6oRBpebeZi9UUNsgQ89bhx01TcTkmNTGnNO88imTmbSgy4nfujrgVEFKWpMTEGA11EDkTt7mqObTPdigIA==}
     engines: {node: '>= 8'}
+    deprecated: The work that was done in this beta branch won't be included in future versions
 
   stop-iteration-iterator@1.1.0:
     resolution: {integrity: sha512-eLoXW/DHyl62zxY4SCaIgnRhuMr6ri4juEYARS8E6sCEqzKpOiE521Ucofdx+KnDZl5xmvGYaaKCk5FEOxJCoQ==}

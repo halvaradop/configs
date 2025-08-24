@@ -5,11 +5,12 @@
   "description": "Reusable tsup build configuration for @halvaradop projects.",
   "type": "module",
   "scripts": {
-    "build": "tsup tsup.config.ts",
+    "build": "tsup tsup.config.js && pnpm clean:cts",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint . --cache --cache-location .cache/.eslintcache",
-    "lint:fix": "eslint . --fix --cache --cache-location .cache/.eslintcache"
+    "lint:fix": "eslint . --fix --cache --cache-location .cache/.eslintcache",
+    "clean:cts": "rm -rf ./dist/*.d.cts"
   },
   "repository": {
     "type": "git",

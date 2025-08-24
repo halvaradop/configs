@@ -1,6 +1,7 @@
-import type { Options } from "tsup"
-
-export const tsupConfig: Options = {
+/**
+ * @type {import("tsup").Options}
+ */
+export const tsupConfig = {
     format: ["esm", "cjs"],
     dts: true,
     clean: true,
