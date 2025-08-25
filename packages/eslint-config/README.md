@@ -10,11 +10,13 @@ A professional, shareable ESLint configuration suite for modern JavaScript, Type
 ## Features
 
 - `ESLint v9 Flat Config`: Built with the latest ESLint configuration format
-- `Multiple Configurations`: Base, TypeScript, React, and Next.js specific configs
+- `Multiple Configurations`: Base, TypeScript, React, Next.js, and Vite specific configs
+- `Composable Design`: Use configurations independently or combine them with spread operator
 - `Comprehensive Rules`: Carefully curated rules for code quality and consistency
 - `TypeScript Ready`: Full TypeScript support with type-aware linting
 - `React Optimized`: Includes React hooks and JSX best practices
 - `Next.js Enhanced`: Specific rules for Next.js App Router and Pages Router
+- `Vite Optimized`: Specialized configuration for Vite + React + TypeScript projects
 - `Prettier Integration`: Seamlessly works with Prettier formatting
 - `Monorepo Support`: Includes Turbo and workspace-aware rules
 
@@ -37,52 +39,82 @@ yarn add -D @halvaradop/eslint-config eslint
 
 ## Available Configurations
 
-### Base Configuration
+### Independent Usage
 
-**For:** Pure JavaScript projects or as a foundation for other configs
+Each configuration can be used independently:
+
+#### Base Configuration
+
+**For:** Pure JavaScript projects
 
 ```js
 // eslint.config.{js,ts}
-import { config } from "@halvaradop/eslint-config/base"
+import baseConfig from "@halvaradop/eslint-config/base"
 
-/** @type {import("eslint").Linter.Config} */
-export default config
+export default baseConfig
 ```
 
-### TypeScript Configuration
+#### TypeScript Configuration
 
-**For:** TypeScript projects (extends base configuration)
+**For:** TypeScript projects (self-contained, includes base rules)
 
 ```js
 // eslint.config.{js,ts}
-import { config } from "@halvaradop/eslint-config/typescript"
+import tsConfig from "@halvaradop/eslint-config/typescript"
 
-/** @type {import("eslint").Linter.Config} */
-export default config
+export default tsConfig
 ```
 
-### React Configuration
+#### React Configuration
 
-**For:** React projects (extends base configuration)
+**For:** React projects (self-contained, includes base rules)
 
 ```js
 // eslint.config.{js,ts}
-import { config } from "@halvaradop/eslint-config/react"
+import reactConfig from "@halvaradop/eslint-config/react"
 
-/** @type {import("eslint").Linter.Config} */
-export default config
+export default reactConfig
 ```
 
-### Next.js Configuration
+#### Next.js Configuration
 
-**For:** Next.js projects (extends base + React configurations)
+**For:** Next.js projects (self-contained, includes base and React rules)
 
 ```js
 // eslint.config.{js,ts}
-import { config } from "@halvaradop/eslint-config/nextjs"
+import nextConfig from "@halvaradop/eslint-config/next"
 
-/** @type {import("eslint").Linter.Config} */
-export default config
+export default nextConfig
+```
+
+#### Vite Configuration
+
+**For:** Vite + React + TypeScript projects (optimized for Vite's module resolution)
+
+```js
+// eslint.config.{js,ts}
+import viteConfig from "@halvaradop/eslint-config/vite"
+
+export default viteConfig
+```
+
+### Composable Usage
+
+Combine configurations using the spread operator:
+
+```js
+// eslint.config.{js,ts}
+import baseConfig from "@halvaradop/eslint-config/base"
+import tsConfig from "@halvaradop/eslint-config/typescript"
+import reactConfig from "@halvaradop/eslint-config/react"
+import nextConfig from "@halvaradop/eslint-config/next"
+import viteConfig from "@halvaradop/eslint-config/vite"
+
+// Choose your combination:
+export default [...baseConfig, ...tsConfig] // Base + TypeScript
+// export default [...reactConfig, ...tsConfig]       // React + TypeScript
+// export default [...nextConfig, ...tsConfig]        // Next.js + TypeScript
+// export default viteConfig                          // Vite + React + TypeScript
 ```
 
 ## Usage Examples
@@ -91,67 +123,87 @@ export default config
 
 ```js
 // eslint.config.{js,ts}
-import { config } from "@halvaradop/eslint-config/base"
+import baseConfig from "@halvaradop/eslint-config/base"
 
-/** @type {import("eslint").Linter.Config} */
-export default config
+export default baseConfig
 ```
 
 ### TypeScript Project
 
 ```js
 // eslint.config.{js,ts}
-import { config } from "@halvaradop/eslint-config/typescript"
+import tsConfig from "@halvaradop/eslint-config/typescript"
 
-/** @type {import("eslint").Linter.Config} */
-export default config
+export default tsConfig
 ```
 
 ### React with TypeScript
 
 ```js
 // eslint.config.{js,ts}
-import { config as baseConfig } from "@halvaradop/eslint-config/base"
-import { config as reactConfig } from "@halvaradop/eslint-config/react"
-import { config as tsConfig } from "@halvaradop/eslint-config/typescript"
+import reactConfig from "@halvaradop/eslint-config/react"
+import tsConfig from "@halvaradop/eslint-config/typescript"
 
-export default [...baseConfig, ...tsConfig, ...reactConfig]
+export default [...reactConfig, ...tsConfig]
 ```
 
 ### Next.js with TypeScript
 
 ```js
 // eslint.config.{js,ts}
-import { config as baseConfig } from "@halvaradop/eslint-config/base"
-import { config as nextConfig } from "@halvaradop/eslint-config/nextjs"
-import { config as tsConfig } from "@halvaradop/eslint-config/typescript"
+import nextConfig from "@halvaradop/eslint-config/next"
+import tsConfig from "@halvaradop/eslint-config/typescript"
 
-export default [...baseConfig, ...tsConfig, ...nextConfig]
+export default [...nextConfig, ...tsConfig]
+```
+
+### Vite + React + TypeScript (Recommended for Vite projects)
+
+```js
+// eslint.config.{js,ts}
+import viteConfig from "@halvaradop/eslint-config/vite"
+
+export default viteConfig
 ```
 
 ### Custom Extensions
 
 ```js
 // eslint.config.{js,ts}
-import { config } from "@halvaradop/eslint-config/base"
+import baseConfig from "@halvaradop/eslint-config/base"
+import tsConfig from "@halvaradop/eslint-config/typescript"
 
 export default [
-  ...config,
+  ...baseConfig,
+  ...tsConfig,
   {
-    files: ["**/*.js"],
+    files: ["**/*.js", "**/*.ts", "**/*.jsx", "**/*.tsx"],
     rules: {
       "no-console": "error",
       "prefer-const": "warn",
     },
   },
   {
-    files: ["**/*.test.js", "**/*.spec.js"],
+    files: ["**/*.test.js", "**/*.test.ts", "**/*.spec.js", "**/*.spec.ts"],
     rules: {
       "no-console": "off",
     },
   },
 ]
 ```
+
+## Configuration Combinations
+
+| Use Case             | Configuration                   | Import                                 |
+| -------------------- | ------------------------------- | -------------------------------------- |
+| JavaScript only      | Base                            | `@halvaradop/eslint-config/base`       |
+| TypeScript only      | TypeScript                      | `@halvaradop/eslint-config/typescript` |
+| React only           | React                           | `@halvaradop/eslint-config/react`      |
+| Next.js only         | Next.js                         | `@halvaradop/eslint-config/next`       |
+| Vite + React + TS    | Vite                            | `@halvaradop/eslint-config/vite`       |
+| Base + TypeScript    | `[...baseConfig, ...tsConfig]`  | Direct composition                     |
+| React + TypeScript   | `[...reactConfig, ...tsConfig]` | Direct composition                     |
+| Next.js + TypeScript | `[...nextConfig, ...tsConfig]`  | Direct composition                     |
 
 ## Package.json Scripts
 
@@ -183,6 +235,33 @@ Ensure your `tsconfig.json` is properly configured:
   "exclude": ["node_modules", "dist"]
 }
 ```
+
+### Vite Projects
+
+For Vite projects, use the dedicated Vite configuration:
+
+```js
+// eslint.config.{js,ts}
+import viteConfig from "@halvaradop/eslint-config/vite"
+
+export default viteConfig
+```
+
+This configuration:
+
+- Disables project-based TypeScript rules for better Vite compatibility
+- Includes browser and Node.js globals
+- Optimizes for Vite's module resolution
+- Handles both `.ts`/`.tsx` and `.js`/`.jsx` files properly
+
+### Rule Conflicts
+
+When combining configurations, some rules might conflict. The configurations are designed to handle common conflicts:
+
+- TypeScript rules override JavaScript rules for `.ts`/`.tsx` files
+- React rules are applied to `.jsx`/`.tsx` files
+- Next.js rules include React rules and add Next.js-specific rules
+- Vite configuration is optimized for Vite's build system and module resolution
 
 ## Related Packages
 

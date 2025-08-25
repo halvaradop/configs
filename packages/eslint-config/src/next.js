@@ -1,24 +1,26 @@
 import globals from "globals"
-import jsxA11y from "eslint-plugin-jsx-a11y"
 import pluginReact from "eslint-plugin-react"
+import pluginNext from "@next/eslint-plugin-next"
 import pluginReactHooks from "eslint-plugin-react-hooks"
-import { config as baseConfig } from "./base.js"
+import onlyWarn from "eslint-plugin-only-warn"
+import { baseConfig } from "./base.js"
 
 /**
- * A shared ESLint configuration for React projects.
- * Extends the base configuration with React and React Hooks rules.
+ * A shared ESLint configuration for Next.js projects.
+ * Can be used independently or combined with TypeScript config.
  *
  * @type {import("eslint").Linter.Config[]}
  */
-export const config = [
+export const nextConfig = [
     ...baseConfig,
     {
-        files: ["**/*.jsx", "**/*.tsx"],
+        files: ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
         languageOptions: {
             ecmaVersion: "latest",
             sourceType: "module",
             globals: {
                 ...globals.browser,
+                ...globals.node,
                 ...globals.es2021,
             },
             parserOptions: {
@@ -30,26 +32,22 @@ export const config = [
         plugins: {
             react: pluginReact,
             "react-hooks": pluginReactHooks,
-            "jsx-a11y": jsxA11y,
+            "@next/next": pluginNext,
+            onlyWarn,
         },
         settings: {
             react: {
                 version: "detect",
-            },
-            "jsx-a11y": {
-                components: {
-                    Button: "button",
-                    Link: "a",
-                },
             },
         },
         rules: {
             ...pluginReact.configs.recommended.rules,
             ...pluginReact.configs["jsx-runtime"].rules,
             ...pluginReactHooks.configs.recommended.rules,
+            ...pluginNext.configs.recommended.rules,
+            ...pluginNext.configs["core-web-vitals"].rules,
             "react/boolean-prop-naming": "error",
             "react/button-has-type": "error",
-            "react/default-props-match-prop-types": "error",
             "react/destructuring-assignment": ["error", "always"],
             "react/display-name": "off",
             "react/function-component-definition": [
@@ -66,15 +64,6 @@ export const config = [
             "react/jsx-no-leaked-render": ["error", { validStrategies: ["ternary"] }],
             "react/jsx-no-useless-fragment": ["error", { allowExpressions: true }],
             "react/jsx-pascal-case": "error",
-            "react/jsx-sort-props": [
-                "error",
-                {
-                    callbacksLast: true,
-                    shorthandFirst: true,
-                    multiline: "last",
-                    reservedFirst: true,
-                },
-            ],
             "react/no-array-index-key": "warn",
             "react/no-object-type-as-default-prop": "error",
             "react/no-unstable-nested-components": "error",
@@ -84,21 +73,47 @@ export const config = [
             "react/self-closing-comp": "error",
             "react-hooks/exhaustive-deps": "error",
             "react-hooks/rules-of-hooks": "error",
-            "jsx-a11y/alt-text": "error",
-            "jsx-a11y/aria-props": "error",
-            "jsx-a11y/aria-proptypes": "error",
-            "jsx-a11y/aria-unsupported-elements": "error",
-            "jsx-a11y/role-has-required-aria-props": "error",
-            "jsx-a11y/role-supports-aria-props": "warn",
-            "jsx-a11y/click-events-have-key-events": "warn",
-            "jsx-a11y/no-static-element-interactions": "warn",
+            "@next/next/no-html-link-for-pages": "error",
+            "@next/next/no-img-element": "error",
+            "@next/next/no-unwanted-polyfillio": "error",
+            "@next/next/no-page-custom-font": "error",
         },
     },
     {
-        files: ["**/*.tsx"],
+        files: ["**/app/**/*.{js,jsx,ts,tsx}"],
         rules: {
-            "react/jsx-filename-extension": ["error", { extensions: [".tsx"] }],
-            "react/require-default-props": "off",
+            "@next/next/no-duplicate-head": "off",
+        },
+    },
+    {
+        files: ["**/pages/**/*.{js,jsx,ts,tsx}"],
+        rules: {
+            "@next/next/no-duplicate-head": "error",
+        },
+    },
+    {
+        files: ["**/pages/api/**/*.{js,ts}", "**/app/api/**/*.{js,ts}", "**/app/**/route.{js,ts}"],
+        languageOptions: {
+            globals: {
+                ...globals.node,
+            },
+        },
+        rules: {
+            "react/display-name": "off",
+            "react/prop-types": "off",
+            "@next/next/no-server-import-in-page": "off",
+        },
+    },
+    {
+        files: ["next.config.{js,mjs,ts}"],
+        languageOptions: {
+            globals: {
+                ...globals.node,
+            },
+        },
+        rules: {
+            "react/display-name": "off",
+            "react/prop-types": "off",
         },
     },
     {
@@ -114,6 +129,22 @@ export const config = [
             "react/prop-types": "off",
         },
     },
+    {
+        ignores: [
+            "**/node_modules/**",
+            "**/dist/**",
+            "**/build/**",
+            "**/coverage/**",
+            "**/.next/**",
+            "**/.nuxt/**",
+            "**/.output/**",
+            "**/.vercel/**",
+            "**/.netlify/**",
+            "**/public/**",
+            "**/*.min.js",
+            "**/vendor/**",
+        ],
+    },
 ]
 
-export default config
+export default nextConfig

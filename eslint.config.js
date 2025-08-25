@@ -1,4 +1,5 @@
-import { config } from "@halvaradop/eslint-config/base"
-import { config as tsConfig } from "@halvaradop/eslint-config/typescript"
+import { baseConfig } from "@halvaradop/eslint-config/base"
+import { tsConfig } from "@halvaradop/eslint-config/typescript"
+import { prettierConfig } from "@halvaradop/eslint-config/prettier"
 
-export default [...config, ...tsConfig]
+export default [...baseConfig, ...tsConfig, ...prettierConfig]
