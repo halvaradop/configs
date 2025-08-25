@@ -22,7 +22,7 @@ export const tsConfig = [
             },
             parser: tseslint.parser,
             parserOptions: {
-                project: ["./tsconfig.app.json"],
+                project: ["./tsconfig.json", "./tsconfig.app.json", "./tsconfig.node.json"],
                 ecmaVersion: "latest",
                 sourceType: "module",
                 ecmaFeatures: {
@@ -37,6 +37,8 @@ export const tsConfig = [
         },
         rules: {
             ...tseslint.configs.recommended.rules,
+            ...tseslint.configs.recommendedTypeChecked.rules,
+            ...tseslint.configs.stylistic.rules,
             "no-unused-vars": "off",
             "@typescript-eslint/no-unused-vars": [
                 "warn",
@@ -58,11 +60,15 @@ export const tsConfig = [
             "@typescript-eslint/explicit-function-return-type": "off",
             "@typescript-eslint/explicit-module-boundary-types": "off",
             "@typescript-eslint/method-signature-style": ["error", "property"],
+            "@typescript-eslint/no-confusing-void-expression": "error",
             "@typescript-eslint/no-duplicate-enum-values": "error",
             "@typescript-eslint/no-empty-interface": "off",
             "@typescript-eslint/no-explicit-any": "warn",
             "@typescript-eslint/no-import-type-side-effects": "error",
             "@typescript-eslint/no-non-null-assertion": "warn",
+            "@typescript-eslint/no-unnecessary-boolean-literal-compare": "error",
+            "@typescript-eslint/no-unnecessary-condition": "error",
+            "@typescript-eslint/no-unnecessary-type-arguments": "error",
             "@typescript-eslint/prefer-for-of": "error",
             "@typescript-eslint/prefer-function-type": "error",
             "@typescript-eslint/prefer-nullish-coalescing": "error",
@@ -71,7 +77,22 @@ export const tsConfig = [
             "@typescript-eslint/prefer-string-starts-ends-with": "error",
             "@typescript-eslint/promise-function-async": "error",
             "@typescript-eslint/require-array-sort-compare": "error",
+            "@typescript-eslint/restrict-plus-operands": "error",
+            "@typescript-eslint/restrict-template-expressions": ["error", { allowNumber: true, allowBoolean: true }],
             "@typescript-eslint/return-await": ["error", "always"],
+            "@typescript-eslint/strict-boolean-expressions": [
+                "error",
+                {
+                    allowString: false,
+                    allowNumber: false,
+                    allowNullableObject: false,
+                    allowNullableBoolean: false,
+                    allowNullableString: false,
+                    allowNullableNumber: false,
+                    allowAny: false,
+                },
+            ],
+            "@typescript-eslint/switch-exhaustiveness-check": "error",
         },
     },
     {

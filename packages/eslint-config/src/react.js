@@ -7,7 +7,7 @@ import { baseConfig } from "./base.js"
 
 /**
  * A shared ESLint configuration for React projects.
- * Can be used independently or combined with TypeScript config.
+ * Extends the base configuration with React and React Hooks rules.
  *
  * @type {import("eslint").Linter.Config[]}
  */
