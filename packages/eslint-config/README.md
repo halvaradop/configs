@@ -10,11 +10,13 @@ A professional, shareable ESLint configuration suite for modern JavaScript, Type
 ## Features
 
 - `ESLint v9 Flat Config`: Built with the latest ESLint configuration format
-- `Multiple Configurations`: Base, TypeScript, React, and Next.js specific configs
+- `Multiple Configurations`: Base, TypeScript, React, Next.js, and Vite specific configs
+- `Composable Design`: Use configurations independently or combine them with spread operator
 - `Comprehensive Rules`: Carefully curated rules for code quality and consistency
 - `TypeScript Ready`: Full TypeScript support with type-aware linting
 - `React Optimized`: Includes React hooks and JSX best practices
 - `Next.js Enhanced`: Specific rules for Next.js App Router and Pages Router
+- `Vite Optimized`: Specialized configuration for Vite + React + TypeScript projects
 - `Prettier Integration`: Seamlessly works with Prettier formatting
 - `Monorepo Support`: Includes Turbo and workspace-aware rules
 
@@ -37,121 +39,104 @@ yarn add -D @halvaradop/eslint-config eslint
 
 ## Available Configurations
 
-### Base Configuration
-
-**For:** Pure JavaScript projects or as a foundation for other configs
-
-```js
-// eslint.config.{js,ts}
-import { config } from "@halvaradop/eslint-config/base"
-
-/** @type {import("eslint").Linter.Config} */
-export default config
-```
-
-### TypeScript Configuration
-
-**For:** TypeScript projects (extends base configuration)
-
-```js
-// eslint.config.{js,ts}
-import { config } from "@halvaradop/eslint-config/typescript"
-
-/** @type {import("eslint").Linter.Config} */
-export default config
-```
-
-### React Configuration
-
-**For:** React projects (extends base configuration)
-
-```js
-// eslint.config.{js,ts}
-import { config } from "@halvaradop/eslint-config/react"
-
-/** @type {import("eslint").Linter.Config} */
-export default config
-```
-
-### Next.js Configuration
-
-**For:** Next.js projects (extends base + React configurations)
-
-```js
-// eslint.config.{js,ts}
-import { config } from "@halvaradop/eslint-config/nextjs"
-
-/** @type {import("eslint").Linter.Config} */
-export default config
-```
-
-## Usage Examples
-
 ### Basic JavaScript Project
 
-```js
+```ts
 // eslint.config.{js,ts}
-import { config } from "@halvaradop/eslint-config/base"
+import { baseConfig } from "@halvaradop/eslint-config/base"
 
-/** @type {import("eslint").Linter.Config} */
-export default config
+export default baseConfig
 ```
 
 ### TypeScript Project
 
-```js
+```ts
 // eslint.config.{js,ts}
-import { config } from "@halvaradop/eslint-config/typescript"
+import { tsConfig } from "@halvaradop/eslint-config/typescript"
 
-/** @type {import("eslint").Linter.Config} */
-export default config
+export default tsConfig
 ```
 
 ### React with TypeScript
 
-```js
+```ts
 // eslint.config.{js,ts}
-import { config as baseConfig } from "@halvaradop/eslint-config/base"
-import { config as reactConfig } from "@halvaradop/eslint-config/react"
-import { config as tsConfig } from "@halvaradop/eslint-config/typescript"
+import { tsConfig } from "@halvaradop/eslint-config/typescript"
+import { reactConfig } from "@halvaradop/eslint-config/react"
 
-export default [...baseConfig, ...tsConfig, ...reactConfig]
+export default [...tsConfig, ...reactConfig]
 ```
 
 ### Next.js with TypeScript
 
-```js
+```ts
 // eslint.config.{js,ts}
-import { config as baseConfig } from "@halvaradop/eslint-config/base"
-import { config as nextConfig } from "@halvaradop/eslint-config/nextjs"
-import { config as tsConfig } from "@halvaradop/eslint-config/typescript"
+import { tsConfig } from "@halvaradop/eslint-config/typescript"
+import { nextConfig } from "@halvaradop/eslint-config/next"
 
-export default [...baseConfig, ...tsConfig, ...nextConfig]
+export default [...tsConfig, ...nextConfig]
+```
+
+### Prettier
+
+```ts
+// eslint.config.{js,ts}
+import { baseConfig } from "@halvaradop/eslint-config/base"
+import { prettierConfig } from "@halvaradop/eslint-config/prettier"
+
+export default [...baseConfig, ...prettierConfig]
+```
+
+### Turborepo
+
+```ts
+// eslint.config.{js,ts}
+import { baseConfig } from "@halvaradop/eslint-config/base"
+import { turboConfig } from "@halvaradop/eslint-config/turbo"
+
+export default [...baseConfig, ...turboConfig]
 ```
 
 ### Custom Extensions
 
-```js
+```ts
 // eslint.config.{js,ts}
-import { config } from "@halvaradop/eslint-config/base"
+import { tsConfig } from "@halvaradop/eslint-config/typescript"
+import { baseConfig } from "@halvaradop/eslint-config/base"
 
 export default [
-  ...config,
+  ...baseConfig,
+  ...tsConfig,
   {
-    files: ["**/*.js"],
+    files: ["**/*.js", "**/*.ts", "**/*.jsx", "**/*.tsx"],
     rules: {
       "no-console": "error",
       "prefer-const": "warn",
     },
   },
   {
-    files: ["**/*.test.js", "**/*.spec.js"],
+    files: ["**/*.test.js", "**/*.test.ts", "**/*.spec.js", "**/*.spec.ts"],
     rules: {
       "no-console": "off",
     },
   },
 ]
 ```
+
+## Configuration Combinations
+
+All configurations build upon the base JavaScript configuration by default.
+
+| Use Case             | Configuration                   | Import Path                                                                  |
+| -------------------- | ------------------------------- | ---------------------------------------------------------------------------- |
+| JavaScript           | Base                            | `@halvaradop/eslint-config/base`                                             |
+| Prettier             | Prettier                        | `@halvaradop/eslint-config/prettier`                                         |
+| Turborepo            | Turborepo                       | `@halvaradop/eslint-config/turbo`                                            |
+| TypeScript           | TypeScript                      | `@halvaradop/eslint-config/typescript`                                       |
+| React                | React                           | `@halvaradop/eslint-config/react`                                            |
+| Next.js              | Next.js                         | `@halvaradop/eslint-config/next`                                             |
+| React + TypeScript   | `[...tsConfig, ...reactConfig]` | `@halvaradop/eslint-config/react` and `@halvaradop/eslint-config/typescript` |
+| Next.js + TypeScript | `[...tsConfig, ...nextConfig]`  | `@halvaradop/eslint-config/next` and `@halvaradop/eslint-config/typescript`  |
 
 ## Package.json Scripts
 

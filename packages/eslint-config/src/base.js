@@ -1,8 +1,6 @@
 import js from "@eslint/js"
 import globals from "globals"
-import turboPlugin from "eslint-plugin-turbo"
 import onlyWarn from "eslint-plugin-only-warn"
-import eslintConfigPrettier from "eslint-config-prettier"
 
 /**
  * A shared ESLint configuration for JavaScript projects.
@@ -10,7 +8,7 @@ import eslintConfigPrettier from "eslint-config-prettier"
  *
  * @type {import("eslint").Linter.Config[]}
  */
-export const config = [
+export const baseConfig = [
     {
         files: ["**/*.js", "**/*.mjs", "**/*.cjs"],
         languageOptions: {
@@ -45,23 +43,12 @@ export const config = [
             "require-atomic-updates": "error",
         },
     },
-
-    {
-        files: ["**/*.js", "**/*.mjs", "**/*.cjs", "**/*.ts", "**/*.tsx"],
-        plugins: {
-            turbo: turboPlugin,
-        },
-        rules: {
-            "turbo/no-undeclared-env-vars": "warn",
-        },
-    },
     {
         files: ["**/*.js", "**/*.mjs", "**/*.cjs", "**/*.ts", "**/*.tsx"],
         plugins: {
             onlyWarn,
         },
     },
-    eslintConfigPrettier,
     {
         ignores: [
             "**/node_modules/**",
@@ -80,4 +67,4 @@ export const config = [
     },
 ]
 
-export default config
+export default baseConfig

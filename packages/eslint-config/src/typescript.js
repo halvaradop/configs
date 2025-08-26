@@ -1,14 +1,15 @@
 import tseslint from "typescript-eslint"
 import globals from "globals"
-import { config as baseConfig } from "./base.js"
+import onlyWarn from "eslint-plugin-only-warn"
+import { baseConfig } from "./base.js"
 
 /**
  * A shared ESLint configuration for TypeScript projects.
- * Extends the base configuration with TypeScript-specific rules.
+ * Can be used independently or combined with other configs.
  *
  * @type {import("eslint").Linter.Config[]}
  */
-export const config = [
+export const tsConfig = [
     ...baseConfig,
     {
         files: ["**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts"],
@@ -21,12 +22,18 @@ export const config = [
             },
             parser: tseslint.parser,
             parserOptions: {
-                project: true,
+                project: ["./tsconfig.json", "./tsconfig.app.json", "./tsconfig.node.json"],
+                ecmaVersion: "latest",
+                sourceType: "module",
+                ecmaFeatures: {
+                    jsx: true,
+                },
                 tsconfigRootDir: process.cwd(),
             },
         },
         plugins: {
             "@typescript-eslint": tseslint.plugin,
+            onlyWarn,
         },
         rules: {
             ...tseslint.configs.recommended.rules,
@@ -64,7 +71,6 @@ export const config = [
             "@typescript-eslint/no-unnecessary-type-arguments": "error",
             "@typescript-eslint/prefer-for-of": "error",
             "@typescript-eslint/prefer-function-type": "error",
-            "@typescript-eslint/prefer-includes": "error",
             "@typescript-eslint/prefer-nullish-coalescing": "error",
             "@typescript-eslint/prefer-optional-chain": "error",
             "@typescript-eslint/prefer-readonly": "error",
@@ -97,6 +103,22 @@ export const config = [
             "@typescript-eslint/no-empty-interface": "off",
         },
     },
+    {
+        ignores: [
+            "**/node_modules/**",
+            "**/dist/**",
+            "**/build/**",
+            "**/coverage/**",
+            "**/.next/**",
+            "**/.nuxt/**",
+            "**/.output/**",
+            "**/.vercel/**",
+            "**/.netlify/**",
+            "**/public/**",
+            "**/*.min.js",
+            "**/vendor/**",
+        ],
+    },
 ]
 
-export default config
+export default tsConfig

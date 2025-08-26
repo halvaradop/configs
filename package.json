@@ -6,14 +6,17 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "lint": "turbo run lint",
+    "lint": "turbo run lint lint:root",
     "lint:fix": "turbo run lint:fix",
+    "lint:root": "eslint . --ignore-pattern packages --cache --cache-location .cache/.eslintcache",
     "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "check-types": "turbo run check-types"
   },
   "devDependencies": {
     "@halvaradop/eslint-config": "workspace:*",
     "@halvaradop/prettier-config": "workspace:*",
+    "eslint-plugin-prettier": "^5.5.4",
     "prettier": "^3.6.2",
     "tsup": "^8.3.6",
     "turbo": "^2.5.5",
