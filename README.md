@@ -11,7 +11,7 @@ A comprehensive monorepo of shareable configurations for modern JavaScript and T
 
 This monorepo contains four independent, production-ready configuration packages:
 
-### [@halvaradop/create-config](./packages/cli/)
+### [@halvaradop/create-config](./packages/create-config/)
 
 **Configuration CLI**
 
