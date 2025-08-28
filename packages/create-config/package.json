@@ -1,0 +1,50 @@
+{
+  "name": "@halvaradop/create-config",
+  "version": "0.1.0",
+  "private": false,
+  "description": "CLI to streamline and manage @halvaradop configuration packages efficiently.",
+  "type": "module",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint . --cache --cache-location .cache/.eslintcache",
+    "lint:fix": "eslint . --fix --cache --cache-location .cache/.eslintcache",
+    "cli": "node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/halvaradop/configs.git"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/@halvaradop/create-config"
+  },
+  "keywords": [
+    "cli tool",
+    "configurations",
+    "typescript",
+    "javascript",
+    "@halvaradop",
+    "configs"
+  ],
+  "author": "Hernan Alvarado <hernanvid123@gmail.com>",
+  "license": "MIT",
+  "bin": {
+    "create-halvaradop-config": "dist/index.js"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^7.8.4",
+    "commander": "^14.0.0",
+    "glob": "^11.0.3",
+    "yoctocolors": "^2.1.2"
+  },
+  "devDependencies": {
+    "@halvaradop/tsconfig": "workspace:*",
+    "@halvaradop/tsup-config": "workspace:*",
+    "@types/inquirer": "^9.0.9",
+    "@types/node": "^24.3.0",
+    "typescript": "^5.9.2"
+  }
+}
