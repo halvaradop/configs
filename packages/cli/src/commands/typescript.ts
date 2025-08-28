@@ -69,6 +69,7 @@ export const installTypescript = async ({ force }: InstallOptions) => {
         await addScripts("TypeScript", {
             dev: "tsc --watch",
             build: "tsc",
+            "type-check": "tsc --noEmit",
         })
     } catch (err) {
         error(`Failed to create TypeScript config: ${err instanceof Error ? err.message : String(err)}`)

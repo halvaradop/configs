@@ -9,10 +9,7 @@ const { name, description, version } = await packageJson()
 
 const program = new Command()
 
-program
-    .name(name)
-    .description(description)
-    .version(version, "-v, --version", "Show CLI version")
+program.name(name).description(description).version(version, "-v, --version", "Show CLI version")
 
 program
     .command("eslint")

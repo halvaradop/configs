@@ -44,8 +44,7 @@ export const addScripts = async (name: string, scripts: Record<string, string>) 
     }
 }
 
-
-export const packageJson = async  () => {
+export const packageJson = async () => {
     const pkg = await fs.readFile("package.json", "utf-8")
     return JSON.parse(pkg)
 }

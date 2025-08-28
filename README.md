@@ -11,6 +11,16 @@ A comprehensive monorepo of shareable configurations for modern JavaScript and T
 
 This monorepo contains four independent, production-ready configuration packages:
 
+### [@halvaradop/create-config](./packages/cli/)
+
+**Configuration CLI**
+
+- Set up configuration for TypeScript, Tsup, ESLint, and Prettier, supported packages by the `@halvaradop/configs` ecosystem
+
+```bash
+pnpm create halvaradop-config
+```
+
 ### [@halvaradop/tsconfig](./packages/tsconfig/)
 
 **TypeScript Configuration Presets**

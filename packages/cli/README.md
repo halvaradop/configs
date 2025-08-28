@@ -90,6 +90,7 @@ pnpm create halvaradop-config tsup
 ```json
 {
   "scripts": {
+    "dev": "tsc --watch",
     "build": "tsc",
     "type-check": "tsc --noEmit"
   }
