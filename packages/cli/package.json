@@ -1,5 +1,5 @@
 {
-  "name": "@halvaradop/configs-cli",
+  "name": "@halvaradop/create-config",
   "version": "0.1.0",
   "private": false,
   "description": "CLI to streamline and manage @halvaradop configuration packages efficiently.",
@@ -11,8 +11,7 @@
     "format:check": "prettier --check .",
     "lint": "eslint . --cache --cache-location .cache/.eslintcache",
     "lint:fix": "eslint . --fix --cache --cache-location .cache/.eslintcache",
-    "cli": "node dist/index.js",
-    "type-check": "tsc --noEmit"
+    "cli": "node dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +19,7 @@
   },
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.org/@halvaradop/configs-cli"
+    "registry": "https://registry.npmjs.org/@halvaradop/create-config"
   },
   "keywords": [
     "cli tool",
@@ -32,7 +31,9 @@
   ],
   "author": "Hernan Alvarado <hernanvid123@gmail.com>",
   "license": "MIT",
-  "bin": "dist/index.js",
+  "bin": {
+    "create-halvaradop-config": "dist/index.js"
+  },
   "dependencies": {
     "@inquirer/prompts": "^7.8.4",
     "commander": "^14.0.0",

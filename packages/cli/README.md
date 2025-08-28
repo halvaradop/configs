@@ -1,26 +1,20 @@
-# @halvaradop/configs-cli
+# @halvaradop/create-config
 
 A powerful CLI tool for installing and managing development configurations from the @halvaradop/configs monorepo.
 
 ## Features
 
-- 🚀 **Interactive Installation**: Choose which configurations to install with a beautiful interactive interface
-- 🔧 **Multiple Configurations**: Support for ESLint, Prettier, TypeScript, and Tsup configurations
-- ⚡ **Smart Overwrite Detection**: Automatically detects existing configurations and asks for confirmation
-- 📦 **Package.json Integration**: Automatically adds relevant scripts to your package.json
-- 🎨 **Beautiful UI**: Colored output and progress indicators for better user experience
-- 🔄 **Flexible Options**: Support for command-line flags and non-interactive mode
+- **Interactive Installation**: Choose which configurations to install with a beautiful interactive interface
+- **Multiple Configurations**: Support for ESLint, Prettier, TypeScript, and Tsup configurations
+- **Smart Overwrite Detection**: Automatically detects existing configurations and asks for confirmation
+- **Package.json Integration**: Automatically adds relevant scripts to your package.json
+- **Beautiful UI**: Colored output and progress indicators for better user experience
+- **Flexible Options**: Support for command-line flags and non-interactive mode
 
 ## Installation
 
 ```bash
-npm install -g @halvaradop/configs-cli
-```
-
-Or using pnpm:
-
-```bash
-pnpm add -g @halvaradop/configs-cli
+pnpm install -g @halvaradop/create-config
 ```
 
 ## Usage
@@ -28,87 +22,53 @@ pnpm add -g @halvaradop/configs-cli
 ### Interactive Installation (Recommended)
 
 ```bash
-configs-cli install
+# Using pnpm create (recommended)
+pnpm create halvaradop-config
+
+# Using pnpm dlx
+pnpm dlx @halvaradop/create-config
 ```
 
-This will start an interactive session where you can:
-
-- Select which configurations to install
-- Choose specific configuration types (e.g., React vs Next.js for TypeScript)
-- Confirm overwriting existing configurations
-
-### Command Line Options
+### Command Line Examples
 
 ```bash
-# Install specific packages
-configs-cli install --packages eslint,prettier,typescript
+# Install specific configuration(s)
+pnpm create halvaradop-config typescript
 
 # Force overwrite existing configurations
-configs-cli install --force
-
-# Skip confirmation prompts
-configs-cli install --yes
-
-# Combine options
-configs-cli install --packages eslint,prettier --force --yes
+pnpm create halvaradop-config typescript --force
 ```
 
-### Individual Commands
+### Install Individual Configurations
 
-You can also install configurations individually:
+You can install configurations individually as needed:
 
 ```bash
 # Install ESLint configuration
-configs-cli eslint
+pnpm create halvaradop-config eslint
 
 # Install Prettier configuration
-configs-cli prettier
+pnpm create halvaradop-config prettier
 
 # Install TypeScript configuration
-configs-cli ts
+pnpm create halvaradop-config ts
 
 # Install Tsup configuration
-configs-cli tsup
+pnpm create halvaradop-config tsup
 ```
 
 ## Available Configurations
 
-### ESLint Configurations
+### ESLint
 
 - **Base**: Basic ESLint rules for JavaScript/TypeScript
-- **React**: ESLint rules optimized for React projects
-- **Next.js**: ESLint rules for Next.js projects
-- **Turbo**: ESLint rules for Turbo monorepos
-- **TypeScript**: TypeScript-specific ESLint rules
+- **React**: Rules for React projects
+- **Next.js**: Rules for Next.js projects
+- **Turbo**: Rules for Turbo monorepos
+- **Prettier**: Rules for Prettier monorepos
+- **TypeScript**: TypeScript-specific rules
 
-### TypeScript Configurations
-
-- **Base**: Basic TypeScript configuration
-- **React**: TypeScript configuration for React projects
-- **Next.js**: TypeScript configuration for Next.js projects
-
-### Prettier Configuration
-
-- Standard Prettier configuration with sensible defaults
-
-### Tsup Configuration
-
-- Optimized Tsup configuration for building TypeScript packages
-
-## Configuration Files Created
-
-The CLI tool creates the following configuration files:
-
-- `eslint.config.js` - ESLint configuration
-- `prettier.config.js` - Prettier configuration
-- `tsconfig.json` - TypeScript configuration
-- `tsup.config.js` - Tsup configuration
-
-## Package.json Scripts
-
-The CLI automatically adds relevant scripts to your package.json:
-
-### ESLint Scripts
+#### Example ESLint Scripts
 
 ```json
 {
@@ -119,18 +79,13 @@ The CLI automatically adds relevant scripts to your package.json:
 }
 ```
 
-### Prettier Scripts
+### TypeScript
 
-```json
-{
-  "scripts": {
-    "format": "prettier --write .",
-    "format:check": "prettier --check ."
-  }
-}
-```
+- **Base**: Basic TypeScript configuration
+- **React**: For React projects
+- **Next.js**: For Next.js projects
 
-### TypeScript Scripts
+#### Example TypeScript Scripts
 
 ```json
 {
@@ -141,7 +96,26 @@ The CLI automatically adds relevant scripts to your package.json:
 }
 ```
 
-### Tsup Scripts
+### Prettier
+
+- Standard Prettier configuration with sensible defaults
+
+#### Example Prettier Scripts
+
+```json
+{
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  }
+}
+```
+
+### Tsup
+
+- Optimized configuration for building TypeScript packages
+
+#### Example Tsup Scripts
 
 ```json
 {
@@ -152,52 +126,38 @@ The CLI automatically adds relevant scripts to your package.json:
 }
 ```
 
-## Examples
+## Configuration Files Created
 
-### Quick Start for a React Project
+The CLI tool creates the following configuration files:
 
-```bash
-# Install all configurations for a React project
-configs-cli install --packages eslint,prettier,typescript,tsup --yes
-```
-
-### Setting up a Next.js Project
-
-```bash
-# Interactive installation
-configs-cli install
-# Then select: ESLint (Next.js), Prettier, TypeScript (Next.js), Tsup
-```
-
-### Adding ESLint to an Existing Project
-
-```bash
-# Install only ESLint with React configuration
-configs-cli eslint
-# Then select React configuration when prompted
-```
+- `eslint.config.js` - ESLint configuration
+- `prettier.config.js` - Prettier configuration
+- `tsconfig.json` - TypeScript configuration
+- `tsup.config.js` - Tsup configuration
 
 ## Command Line Options
 
-| Option       | Short | Description                                 |
-| ------------ | ----- | ------------------------------------------- |
-| `--force`    | `-f`  | Force overwrite existing configurations     |
-| `--yes`      | `-y`  | Skip confirmation prompts                   |
-| `--packages` | `-p`  | Comma-separated list of packages to install |
+| Option    | Short | Description                             |
+| --------- | ----- | --------------------------------------- |
+| `--force` | `-f`  | Force overwrite existing configurations |
 
-## Error Handling
+## Related Packages
 
-The CLI tool includes comprehensive error handling:
+This package is part of the `@halvaradop/configs` ecosystem:
 
-- **File System Errors**: Graceful handling of permission issues and file system errors
-- **Configuration Conflicts**: Detects existing configurations and asks for confirmation
-- **Invalid Options**: Validates command-line arguments and provides helpful error messages
-- **Network Issues**: Handles package installation failures gracefully
-
-## Contributing
-
-Contributions are welcome! Please read our contributing guidelines before submitting pull requests.
+- [`@halvaradop/eslint-config`](https://github.com/halvaradop/configs/tree/master/packages/eslint-config) - ESLint configuration
+- [`@halvaradop/prettier-config`](https://github.com/halvaradop/configs/tree/master/packages/prettier-config) - Prettier configuration
+- [`@halvaradop/tsconfig`](https://github.com/halvaradop/configs/tree/master/packages/tsconfig) - TypeScript configuration
+- [`@halvaradop/tsup`](https://github.com/halvaradop/configs/tree/master/packages/tsup-config) - Tsup configuration
 
 ## License
 
-MIT License - see the LICENSE file for details.
+MIT © [Hernan Alvarado](https://github.com/halvaradop)
+
+## Changelog
+
+See [CHANGELOG.md](https://github.com/halvaradop/configs/blob/master/packages/eslint-config/CHANGELOG.md) for details about changes in each version.
+
+---
+
+For more information about ESLint configuration options, visit the [official ESLint documentation](https://eslint.org/docs/latest/use/configure/).
