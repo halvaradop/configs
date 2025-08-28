@@ -32,6 +32,7 @@ configs-cli install
 ```
 
 This will start an interactive session where you can:
+
 - Select which configurations to install
 - Choose specific configuration types (e.g., React vs Next.js for TypeScript)
 - Confirm overwriting existing configurations
@@ -73,6 +74,7 @@ configs-cli tsup
 ## Available Configurations
 
 ### ESLint Configurations
+
 - **Base**: Basic ESLint rules for JavaScript/TypeScript
 - **React**: ESLint rules optimized for React projects
 - **Next.js**: ESLint rules for Next.js projects
@@ -80,14 +82,17 @@ configs-cli tsup
 - **TypeScript**: TypeScript-specific ESLint rules
 
 ### TypeScript Configurations
+
 - **Base**: Basic TypeScript configuration
 - **React**: TypeScript configuration for React projects
 - **Next.js**: TypeScript configuration for Next.js projects
 
 ### Prettier Configuration
+
 - Standard Prettier configuration with sensible defaults
 
 ### Tsup Configuration
+
 - Optimized Tsup configuration for building TypeScript packages
 
 ## Configuration Files Created
@@ -104,6 +109,7 @@ The CLI tool creates the following configuration files:
 The CLI automatically adds relevant scripts to your package.json:
 
 ### ESLint Scripts
+
 ```json
 {
   "scripts": {
@@ -114,6 +120,7 @@ The CLI automatically adds relevant scripts to your package.json:
 ```
 
 ### Prettier Scripts
+
 ```json
 {
   "scripts": {
@@ -124,6 +131,7 @@ The CLI automatically adds relevant scripts to your package.json:
 ```
 
 ### TypeScript Scripts
+
 ```json
 {
   "scripts": {
@@ -134,6 +142,7 @@ The CLI automatically adds relevant scripts to your package.json:
 ```
 
 ### Tsup Scripts
+
 ```json
 {
   "scripts": {
@@ -170,11 +179,11 @@ configs-cli eslint
 
 ## Command Line Options
 
-| Option | Short | Description |
-|--------|-------|-------------|
-| `--force` | `-f` | Force overwrite existing configurations |
-| `--yes` | `-y` | Skip confirmation prompts |
-| `--packages` | `-p` | Comma-separated list of packages to install |
+| Option       | Short | Description                                 |
+| ------------ | ----- | ------------------------------------------- |
+| `--force`    | `-f`  | Force overwrite existing configurations     |
+| `--yes`      | `-y`  | Skip confirmation prompts                   |
+| `--packages` | `-p`  | Comma-separated list of packages to install |
 
 ## Error Handling
 
