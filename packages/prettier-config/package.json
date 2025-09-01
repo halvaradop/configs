@@ -7,7 +7,8 @@
   "main": "dist/prettier.config.js",
   "types": "dist/prettier.config.d.ts",
   "scripts": {
-    "build": "tsup prettier.config.js && pnpm clean:cts",
+    "dev": "tsup --watch",
+    "build": "tsup && pnpm clean:cts",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint . --cache --cache-location .cache/.eslintcache",
@@ -32,7 +33,6 @@
   "author": "Hernan Alvarado <hernanvid123@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "prettier": "^3.6.2",
     "@halvaradop/tsconfig": "workspace:*",
     "@halvaradop/tsup-config": "workspace:*"
   },

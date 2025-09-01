@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2025-08-26
+
 ### Changed
 
 - Updated the TypeScript configuration files by modifying the `lib` values for `nextjs` and adding the `noFallthroughCasesInSwitch` field for `react`. For more details, see [#13](https://github.com/halvaradop/configs/pull/13).

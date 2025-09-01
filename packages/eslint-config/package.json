@@ -5,7 +5,8 @@
   "description": "Shared ESLint configuration for all @halvaradop projects.",
   "type": "module",
   "scripts": {
-    "build": "tsup src && pnpm clean:cts",
+    "dev": "tsup --watch",
+    "build": "tsup && pnpm clean:cts",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint . --cache --cache-location .cache/eslintcache",
@@ -45,7 +46,7 @@
       "require": "./dist/react.cjs",
       "import": "./dist/react.js"
     },
-    "./next": {
+    "./nextjs": {
       "types": "./dist/next.d.ts",
       "require": "./dist/next.cjs",
       "import": "./dist/next.js"
@@ -61,22 +62,26 @@
       "import": "./dist/turbo.js"
     }
   },
-  "devDependencies": {
-    "@eslint/js": "^9.31.0",
-    "@halvaradop/tsup-config": "workspace:*",
-    "@next/eslint-plugin-next": "^15.4.2",
-    "@typescript-eslint/eslint-plugin": "^8.39.0",
-    "eslint": "^9.31.0",
-    "eslint-config-prettier": "^10.1.1",
+  "dependencies": {
+    "@eslint/js": "^9.34.0",
+    "@next/eslint-plugin-next": "^15.5.2",
+    "@typescript-eslint/eslint-plugin": "^8.41.0",
+    "eslint": "^9.34.0",
+    "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-only-warn": "^1.1.0",
     "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
-    "eslint-plugin-turbo": "^2.5.0",
+    "eslint-plugin-turbo": "^2.5.6",
     "globals": "^16.3.0",
-    "typescript": "^5.8.2",
-    "typescript-eslint": "^8.37.0"
+    "typescript-eslint": "^8.41.0"
+  },
+  "devDependencies": {
+    "@halvaradop/tsup-config": "workspace:*"
+  },
+  "peerDependencies": {
+    "eslint": "^9.0.0"
   }
 }

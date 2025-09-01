@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2025-08-26
+
 ### Added
 
 - Added support for `.ts` file extensions in the configuration. [#12](https://github.com/halvaradop/configs/pull/12)

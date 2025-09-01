@@ -13,17 +13,29 @@
     "format:check": "prettier --check .",
     "check-types": "turbo run check-types"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/halvaradop/configs.git"
+  },
+  "bugs": "https://github.com/halvaradop/ui/issues",
+  "homepage": "https://github.com/halvaradop/ui#readme",
+  "keywords": [
+    "config",
+    "halvaradop",
+    "code-style",
+    "linting",
+    "eslint",
+    "tsup"
+  ],
+  "author": "Hernan Alvarado <hernanvid123@gmail.com>",
+  "license": "MIT",
   "devDependencies": {
     "@halvaradop/eslint-config": "workspace:*",
     "@halvaradop/prettier-config": "workspace:*",
-    "eslint-plugin-prettier": "^5.5.4",
     "prettier": "^3.6.2",
     "tsup": "^8.3.6",
     "turbo": "^2.5.5",
     "typescript": "5.8.3"
   },
-  "packageManager": "pnpm@9.0.0",
-  "engines": {
-    "node": ">=18"
-  }
+  "packageManager": "pnpm@9.0.0"
 }
