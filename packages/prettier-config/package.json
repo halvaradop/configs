@@ -4,8 +4,6 @@
   "private": false,
   "description": "Shared Prettier configuration for all @halvaradop projects.",
   "type": "module",
-  "main": "dist/prettier.config.js",
-  "types": "dist/prettier.config.d.ts",
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup && pnpm clean:cts",
@@ -32,6 +30,13 @@
   ],
   "author": "Hernan Alvarado <hernanvid123@gmail.com>",
   "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./dist/prettier.config.d.ts",
+      "import": "./dist/prettier.config.js",
+      "require": "./dist/prettier.config.cjs"
+    }
+  },
   "devDependencies": {
     "@halvaradop/tsconfig": "workspace:*",
     "@halvaradop/tsup-config": "workspace:*"
