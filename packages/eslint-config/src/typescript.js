@@ -22,13 +22,12 @@ export const tsConfig = [
             },
             parser: tseslint.parser,
             parserOptions: {
-                project: ["./tsconfig.json", "./tsconfig.app.json", "./tsconfig.node.json"],
+                project: ["./packages/*/tsconfig.json", "**/tsconfig.json", "**/tsconfig.*.json"],
                 ecmaVersion: "latest",
                 sourceType: "module",
                 ecmaFeatures: {
                     jsx: true,
                 },
-                tsconfigRootDir: process.cwd(),
             },
         },
         plugins: {

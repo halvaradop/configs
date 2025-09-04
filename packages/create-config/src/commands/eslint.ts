@@ -49,10 +49,12 @@ export const confirmAllConfigs = async () => {
 export const installEslint = async ({ force }: InstallOptions) => {
     const matchConfigFiles = exists(["eslint.config.{js,ts}", ".eslintrc", ".eslintrc.{js,json}"])
 
-    if (matchConfigFiles.length > 0 && !force) {
+    if (matchConfigFiles.length > 0 && force === false) {
         warn(colors.yellow("Detected existing ESLint configuration files:"))
 
-        matchConfigFiles.forEach((config) => warn(colors.gray(`  - ${config}`)))
+        matchConfigFiles.forEach((config) => {
+            warn(colors.gray(`  - ${config}`))
+        })
 
         const overwrite = await confirm({
             message: "Existing ESLint config files detected. Overwrite with recommended settings?",

@@ -1,4 +1,4 @@
-export type LoggerInstance = {
+export interface LoggerInstance {
     info: (message: string) => void
     warn: (message: string) => void
     error: (message: string) => void

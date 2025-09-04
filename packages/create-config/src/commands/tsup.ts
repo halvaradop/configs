@@ -19,12 +19,14 @@ export const tsupCommand = async (options: InstallOptions) => {
     }
 }
 
-export const installTsup = async ({ force = false }: InstallOptions) => {
+export const installTsup = async ({ force }: InstallOptions) => {
     const matchConfigFiles = exists("tsup.config.{js,cjs,ts,json}")
 
-    if (matchConfigFiles.length > 0 && !force) {
+    if (matchConfigFiles.length > 0 && force === false) {
         warn(colors.yellow("Detected existing Tsup configuration files:"))
-        matchConfigFiles.forEach((filePath) => warn(colors.gray(`  - ${filePath}`)))
+        matchConfigFiles.forEach((filePath) => {
+            warn(colors.gray(`  - ${filePath}`))
+        })
 
         const overwrite = await confirm({
             message: "Existing Tsup config files detected. Overwrite with recommended settings?",

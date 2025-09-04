@@ -41,9 +41,7 @@ export const updatePackageJson = async (pkg: string, keyJson: string, entries: R
         packageJson[keyJson] ??= {}
 
         Object.entries(entries).forEach(([key, value]) => {
-            if (!packageJson[keyJson][key]) {
-                packageJson[keyJson][key] = value
-            }
+            packageJson[keyJson][key] ??= value
         })
         const sortedEntries = Object.entries(packageJson[keyJson]).sort(([a], [b]) => a.localeCompare(b))
         packageJson[keyJson] = Object.fromEntries(sortedEntries)

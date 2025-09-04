@@ -19,15 +19,17 @@ export const prettierCommand = async (options: InstallOptions) => {
     }
 }
 
-export const installPrettier = async ({ force = false }: InstallOptions) => {
+export const installPrettier = async ({ force }: InstallOptions) => {
     const matchConfigFiles = exists([
         "prettier.config.{js,mjs,cjs,ts,mts,cts}",
         ".prettierrc.{js,mjs,cjs,ts,mts,cts,json,json5,yml,yaml,toml}",
     ])
 
-    if (matchConfigFiles.length > 0 && !force) {
+    if (matchConfigFiles.length > 0 && force === false) {
         warn(colors.yellow("Detected existing Prettier configuration files:"))
-        matchConfigFiles.forEach((filePath) => warn(colors.gray(`  - ${filePath}`)))
+        matchConfigFiles.forEach((filePath) => {
+            warn(colors.gray(`  - ${filePath}`))
+        })
 
         const overwrite = await confirm({
             message: "Existing Prettier config files detected. Overwrite with recommended settings?",

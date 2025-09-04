@@ -39,9 +39,11 @@ export const tsCommand = async (options: InstallOptions) => {
 export const installTypescript = async ({ force }: InstallOptions) => {
     const matchConfigFiles = exists(["tsconfig.json", "tsconfig.*.json"])
 
-    if (matchConfigFiles.length > 0 && !force) {
+    if (matchConfigFiles.length > 0 && force === false) {
         warn(colors.yellow("Detected existing TypeScript configuration files:"))
-        matchConfigFiles.forEach(async (filePath) => warn(colors.gray(`  - ${filePath}`)))
+        matchConfigFiles.forEach(async (filePath) => {
+            warn(colors.gray(`  - ${filePath}`))
+        })
 
         const overwrite = await confirm({
             message: "Existing TypeScript config files detected. Overwrite with recommended settings?",
