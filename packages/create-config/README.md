@@ -1,4 +1,4 @@
-# @halvaradop/create-config
+# `@halvaradop/create-config`
 
 A powerful CLI tool for installing and managing development configurations from the @halvaradop/configs monorepo.
 
@@ -23,7 +23,7 @@ pnpm install -g @halvaradop/create-config
 
 ```bash
 # Using pnpm create (recommended)
-pnpm create halvaradop-config
+pnpm create @halvaradop/create-config
 
 # Using pnpm dlx
 pnpm dlx @halvaradop/create-config
@@ -33,10 +33,10 @@ pnpm dlx @halvaradop/create-config
 
 ```bash
 # Install specific configuration(s)
-pnpm create halvaradop-config typescript
+pnpm create @halvaradop/create-config typescript
 
 # Force overwrite existing configurations
-pnpm create halvaradop-config typescript --force
+pnpm create @halvaradop/create-config typescript --force
 ```
 
 ### Install Individual Configurations
@@ -45,16 +45,16 @@ You can install configurations individually as needed:
 
 ```bash
 # Install ESLint configuration
-pnpm create halvaradop-config eslint
+pnpm create @halvaradop/create-config eslint
 
 # Install Prettier configuration
-pnpm create halvaradop-config prettier
+pnpm create @halvaradop/create-config prettier
 
 # Install TypeScript configuration
-pnpm create halvaradop-config ts
+pnpm create @halvaradop/create-config ts
 
 # Install Tsup configuration
-pnpm create halvaradop-config tsup
+pnpm create @halvaradop/create-config tsup
 ```
 
 ## Available Configurations

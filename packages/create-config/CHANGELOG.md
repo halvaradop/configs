@@ -7,9 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2025-09-04
+
 ### Added
 
 - Dependencies for packages and scripts are now managed in `package.json`. [#18](https://github.com/halvaradop/configs/pull/18)
+
+### Changed
+
+- Excluded unnecessary files from being published to npm, ensuring only the `dist` folders are included. [#19](https://github.com/halvaradop/configs/pull/19)
 
 ## [0.1.0] - 2025-08-31
 
