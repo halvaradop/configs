@@ -30,6 +30,9 @@
   ],
   "author": "Hernan Alvarado <hernanvid123@gmail.com>",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "types": "./dist/prettier.config.d.ts",

@@ -1,7 +1,7 @@
 import fs from "fs/promises"
 import { select, confirm } from "@inquirer/prompts"
 import * as colors from "yoctocolors"
-import { addScripts, exists } from "../utils/index.js"
+import { updatePackageJson, exists } from "../utils/index.js"
 import { info, warn, error } from "../utils/logger.js"
 import { generateTsConfigTemplate, type TsConfigType } from "../templates/typescript.js"
 
@@ -66,7 +66,11 @@ export const installTypescript = async ({ force }: InstallOptions) => {
     try {
         await fs.writeFile(configPath, configContent, "utf-8")
         info(colors.green(`  - TypeScript config created: ${configPath}`))
-        await addScripts("TypeScript", {
+
+        await updatePackageJson("TypeScript", "devDependencies", {
+            typescript: "^5.8.3",
+        })
+        await updatePackageJson("TypeScript", "scripts", {
             dev: "tsc --watch",
             build: "tsc",
             "type-check": "tsc --noEmit",

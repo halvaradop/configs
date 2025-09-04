@@ -2,14 +2,14 @@
 
 import { Command } from "commander"
 import { eslintCommand, prettierCommand, tsupCommand, tsCommand } from "./commands/index.js"
-import { packageJson } from "./utils/index.js"
 import * as colors from "yoctocolors"
-
-const { name, description, version } = await packageJson()
 
 const program = new Command()
 
-program.name(name).description(description).version(version, "-v, --version", "Show CLI version")
+program
+    .name("@halvaradop/create-config")
+    .description("CLI to streamline and manage @halvaradop configuration packages efficiently.")
+    .version("0.1.0")
 
 program
     .command("eslint")

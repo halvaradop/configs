@@ -69,9 +69,6 @@ importers:
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.41.0
         version: 8.41.0(@typescript-eslint/parser@8.41.0(eslint@9.34.0)(typescript@5.9.2))(eslint@9.34.0)(typescript@5.9.2)
-      eslint:
-        specifier: ^9.34.0
-        version: 9.34.0
       eslint-config-prettier:
         specifier: ^10.1.8
         version: 10.1.8(eslint@9.34.0)
@@ -106,6 +103,9 @@ importers:
       '@halvaradop/tsup-config':
         specifier: workspace:*
         version: link:../tsup-config
+      eslint:
+        specifier: ^9.34.0
+        version: 9.34.0
 
   packages/prettier-config:
     dependencies:

@@ -1,7 +1,7 @@
 import fs from "fs/promises"
 import { confirm } from "@inquirer/prompts"
 import * as colors from "yoctocolors"
-import { addScripts, exists } from "../utils/index.js"
+import { updatePackageJson, exists } from "../utils/index.js"
 import { info, warn, error } from "../utils/logger.js"
 import { type EslintConfigType, generateEslintConfigTemplate } from "../templates/eslint.js"
 
@@ -72,7 +72,12 @@ export const installEslint = async ({ force }: InstallOptions) => {
     try {
         await fs.writeFile(configPath, configContent, "utf-8")
         info(colors.green(`  - ESLint config created: ${configPath}`))
-        addScripts("ESLint", {
+
+        await updatePackageJson("ESLint", "devDependencies", {
+            eslint: "^9.34.0",
+            "@halvaradop/eslint-config": "latest",
+        })
+        await updatePackageJson("ESLint", "scripts", {
             lint: "eslint . --cache --cache-location .cache/.eslintcache",
             "lint:fix": "eslint . --fix --cache --cache-location .cache/.eslintcache",
         })

@@ -1,7 +1,7 @@
 import fs from "fs/promises"
 import { confirm } from "@inquirer/prompts"
 import * as colors from "yoctocolors"
-import { addScripts, exists } from "../utils/index.js"
+import { updatePackageJson, exists } from "../utils/index.js"
 import { info, warn, error } from "../utils/logger.js"
 import { generatePrettierConfigTemplate } from "../templates/prettier.js"
 
@@ -46,7 +46,12 @@ export const installPrettier = async ({ force = false }: InstallOptions) => {
     try {
         await fs.writeFile(configPath, configContent, "utf-8")
         info(colors.green(`  - Prettier config created: ${configPath}`))
-        await addScripts("Prettier", {
+
+        await updatePackageJson("Prettier", "devDependencies", {
+            prettier: "^3.0.0",
+            "@halvaradop/prettier-config": "latest",
+        })
+        await updatePackageJson("Prettier", "scripts", {
             format: "prettier --write .",
             "format:check": "prettier --check .",
         })

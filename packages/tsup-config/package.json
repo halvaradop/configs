@@ -32,6 +32,9 @@
   ],
   "author": "Hernan Alvarado <hernanvid123@gmail.com>",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "types": "./dist/tsup.config.d.ts",
