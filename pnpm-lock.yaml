@@ -14,9 +14,6 @@ importers:
       '@halvaradop/prettier-config':
         specifier: workspace:*
         version: link:packages/prettier-config
-      eslint-plugin-prettier:
-        specifier: ^5.5.4
-        version: 5.5.4(eslint-config-prettier@10.1.8(eslint@9.34.0))(eslint@9.34.0)(prettier@3.6.2)
       prettier:
         specifier: ^3.6.2
         version: 3.6.2
@@ -30,7 +27,7 @@ importers:
         specifier: 5.8.3
         version: 5.8.3
 
-  packages/cli:
+  packages/create-config:
     dependencies:
       '@inquirer/prompts':
         specifier: ^7.8.4
@@ -62,24 +59,18 @@ importers:
         version: 5.9.2
 
   packages/eslint-config:
-    devDependencies:
+    dependencies:
       '@eslint/js':
-        specifier: ^9.31.0
+        specifier: ^9.34.0
         version: 9.34.0
-      '@halvaradop/tsup-config':
-        specifier: workspace:*
-        version: link:../tsup-config
       '@next/eslint-plugin-next':
-        specifier: ^15.4.2
+        specifier: ^15.5.2
         version: 15.5.2
       '@typescript-eslint/eslint-plugin':
-        specifier: ^8.39.0
+        specifier: ^8.41.0
         version: 8.41.0(@typescript-eslint/parser@8.41.0(eslint@9.34.0)(typescript@5.9.2))(eslint@9.34.0)(typescript@5.9.2)
-      eslint:
-        specifier: ^9.31.0
-        version: 9.34.0
       eslint-config-prettier:
-        specifier: ^10.1.1
+        specifier: ^10.1.8
         version: 10.1.8(eslint@9.34.0)
       eslint-plugin-jsx-a11y:
         specifier: ^6.10.2
@@ -100,19 +91,27 @@ importers:
         specifier: ^0.4.20
         version: 0.4.20(eslint@9.34.0)
       eslint-plugin-turbo:
-        specifier: ^2.5.0
+        specifier: ^2.5.6
         version: 2.5.6(eslint@9.34.0)(turbo@2.5.6)
       globals:
         specifier: ^16.3.0
         version: 16.3.0
-      typescript:
-        specifier: ^5.8.2
-        version: 5.9.2
       typescript-eslint:
-        specifier: ^8.37.0
+        specifier: ^8.41.0
         version: 8.41.0(eslint@9.34.0)(typescript@5.9.2)
+    devDependencies:
+      '@halvaradop/tsup-config':
+        specifier: workspace:*
+        version: link:../tsup-config
+      eslint:
+        specifier: ^9.34.0
+        version: 9.34.0
 
   packages/prettier-config:
+    dependencies:
+      prettier:
+        specifier: ^3.0.0
+        version: 3.6.2
     devDependencies:
       '@halvaradop/tsconfig':
         specifier: workspace:*
@@ -120,9 +119,6 @@ importers:
       '@halvaradop/tsup-config':
         specifier: workspace:*
         version: link:../tsup-config
-      prettier:
-        specifier: ^3.6.2
-        version: 3.6.2
 
   packages/tsconfig:
     dependencies:
@@ -131,12 +127,9 @@ importers:
         version: 5.9.2
 
   packages/tsup-config:
-    devDependencies:
-      '@halvaradop/tsconfig':
-        specifier: workspace:*
-        version: link:../tsconfig
+    dependencies:
       tsup:
-        specifier: ^8.3.6
+        specifier: ^8.0.0
         version: 8.5.0(typescript@5.9.2)
 
 packages:

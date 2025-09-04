@@ -31,6 +31,7 @@ The default configuration includes:
 | Setting  | Value            | Description                            |
 | -------- | ---------------- | -------------------------------------- |
 | `format` | `["esm", "cjs"]` | Output both ESM and CommonJS bundles   |
+| `entry`  | `["src"]`        | Entry point(s) for the build           |
 | `dts`    | `true`           | Generate TypeScript declaration files  |
 | `clean`  | `true`           | Clean output directory before building |
 | `minify` | `true`           | Minify the output bundles              |
@@ -81,7 +82,7 @@ Add these scripts to your `package.json` for streamlined development:
 ```json
 {
   "scripts": {
-    "dev": "tsup -w",
+    "dev": "tsup --watch",
     "build": "tsup"
   }
 }

@@ -1,7 +1,7 @@
 import fs from "fs/promises"
 import { select, confirm } from "@inquirer/prompts"
 import * as colors from "yoctocolors"
-import { addScripts, exists } from "../utils/index.js"
+import { updatePackageJson, exists } from "../utils/index.js"
 import { info, warn, error } from "../utils/logger.js"
 import { generateTsConfigTemplate, type TsConfigType } from "../templates/typescript.js"
 
@@ -39,9 +39,11 @@ export const tsCommand = async (options: InstallOptions) => {
 export const installTypescript = async ({ force }: InstallOptions) => {
     const matchConfigFiles = exists(["tsconfig.json", "tsconfig.*.json"])
 
-    if (matchConfigFiles.length > 0 && !force) {
+    if (matchConfigFiles.length > 0 && force === false) {
         warn(colors.yellow("Detected existing TypeScript configuration files:"))
-        matchConfigFiles.forEach(async (filePath) => warn(colors.gray(`  - ${filePath}`)))
+        matchConfigFiles.forEach(async (filePath) => {
+            warn(colors.gray(`  - ${filePath}`))
+        })
 
         const overwrite = await confirm({
             message: "Existing TypeScript config files detected. Overwrite with recommended settings?",
@@ -66,7 +68,11 @@ export const installTypescript = async ({ force }: InstallOptions) => {
     try {
         await fs.writeFile(configPath, configContent, "utf-8")
         info(colors.green(`  - TypeScript config created: ${configPath}`))
-        await addScripts("TypeScript", {
+
+        await updatePackageJson("TypeScript", "devDependencies", {
+            typescript: "^5.8.3",
+        })
+        await updatePackageJson("TypeScript", "scripts", {
             dev: "tsc --watch",
             build: "tsc",
             "type-check": "tsc --noEmit",

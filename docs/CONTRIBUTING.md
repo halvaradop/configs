@@ -113,6 +113,7 @@ Only maintainers listed in the [CODEOWNERS](https://github.com/halvaradop/config
 @halvaradop/configs/
 ├── docs/                   # Documentation
 ├── packages/               # Individual configuration packages
+│   ├── create-config/      # CLI tool to set up the configs provided by `@halvaradop/configs`
 │   ├── eslint-config/      # ESLint configurations
 │   ├── prettier-config/    # Prettier configurations
 │   ├── tsconfig/           # TypeScript configurations

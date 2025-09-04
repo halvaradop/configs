@@ -1,7 +1,7 @@
 import fs from "fs/promises"
 import { confirm } from "@inquirer/prompts"
 import * as colors from "yoctocolors"
-import { addScripts, exists } from "../utils/index.js"
+import { updatePackageJson, exists } from "../utils/index.js"
 import { info, warn, error } from "../utils/logger.js"
 import { type EslintConfigType, generateEslintConfigTemplate } from "../templates/eslint.js"
 
@@ -49,10 +49,12 @@ export const confirmAllConfigs = async () => {
 export const installEslint = async ({ force }: InstallOptions) => {
     const matchConfigFiles = exists(["eslint.config.{js,ts}", ".eslintrc", ".eslintrc.{js,json}"])
 
-    if (matchConfigFiles.length > 0 && !force) {
+    if (matchConfigFiles.length > 0 && force === false) {
         warn(colors.yellow("Detected existing ESLint configuration files:"))
 
-        matchConfigFiles.forEach((config) => warn(colors.gray(`  - ${config}`)))
+        matchConfigFiles.forEach((config) => {
+            warn(colors.gray(`  - ${config}`))
+        })
 
         const overwrite = await confirm({
             message: "Existing ESLint config files detected. Overwrite with recommended settings?",
@@ -72,7 +74,12 @@ export const installEslint = async ({ force }: InstallOptions) => {
     try {
         await fs.writeFile(configPath, configContent, "utf-8")
         info(colors.green(`  - ESLint config created: ${configPath}`))
-        addScripts("ESLint", {
+
+        await updatePackageJson("ESLint", "devDependencies", {
+            eslint: "^9.34.0",
+            "@halvaradop/eslint-config": "latest",
+        })
+        await updatePackageJson("ESLint", "scripts", {
             lint: "eslint . --cache --cache-location .cache/.eslintcache",
             "lint:fix": "eslint . --fix --cache --cache-location .cache/.eslintcache",
         })

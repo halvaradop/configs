@@ -1,7 +1,7 @@
 import fs from "fs/promises"
 import { confirm } from "@inquirer/prompts"
 import * as colors from "yoctocolors"
-import { addScripts, exists } from "../utils/index.js"
+import { updatePackageJson, exists } from "../utils/index.js"
 import { info, warn, error } from "../utils/logger.js"
 import { generatePrettierConfigTemplate } from "../templates/prettier.js"
 
@@ -19,15 +19,17 @@ export const prettierCommand = async (options: InstallOptions) => {
     }
 }
 
-export const installPrettier = async ({ force = false }: InstallOptions) => {
+export const installPrettier = async ({ force }: InstallOptions) => {
     const matchConfigFiles = exists([
         "prettier.config.{js,mjs,cjs,ts,mts,cts}",
         ".prettierrc.{js,mjs,cjs,ts,mts,cts,json,json5,yml,yaml,toml}",
     ])
 
-    if (matchConfigFiles.length > 0 && !force) {
+    if (matchConfigFiles.length > 0 && force === false) {
         warn(colors.yellow("Detected existing Prettier configuration files:"))
-        matchConfigFiles.forEach((filePath) => warn(colors.gray(`  - ${filePath}`)))
+        matchConfigFiles.forEach((filePath) => {
+            warn(colors.gray(`  - ${filePath}`))
+        })
 
         const overwrite = await confirm({
             message: "Existing Prettier config files detected. Overwrite with recommended settings?",
@@ -46,7 +48,12 @@ export const installPrettier = async ({ force = false }: InstallOptions) => {
     try {
         await fs.writeFile(configPath, configContent, "utf-8")
         info(colors.green(`  - Prettier config created: ${configPath}`))
-        await addScripts("Prettier", {
+
+        await updatePackageJson("Prettier", "devDependencies", {
+            prettier: "^3.0.0",
+            "@halvaradop/prettier-config": "latest",
+        })
+        await updatePackageJson("Prettier", "scripts", {
             format: "prettier --write .",
             "format:check": "prettier --check .",
         })

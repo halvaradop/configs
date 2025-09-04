@@ -31,6 +31,9 @@
   ],
   "author": "Hernan Alvarado <hernanvid123@gmail.com>",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "bin": {
     "create-halvaradop-config": "dist/index.js"
   },

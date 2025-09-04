@@ -33,6 +33,7 @@ This configuration includes the following settings:
 | `semi`               | `false` | No semicolons at the end of statements          |
 | `tabWidth`           | `4`     | 4 spaces for indentation (default)              |
 | `printWidth`         | `120`   | Maximum line length of 120 characters           |
+| `trailingComma`      | `es5`   | Add trailing commas based on ES5 standards      |
 | `overrides/tabWidth` | `2`     | 2 spaces for indentation (json,md,mdx,yaml,yml) |
 
 ## Usage

@@ -5,9 +5,7 @@ export const eslintImportTemplate = (configType: EslintConfigType): string => {
 }
 
 export const generateEslintConfigTemplate = (configType: EslintConfigType[]): string => {
-    const imports = configType
-        .map((type) => `import { ${type}Config } from "@halvaradop/eslint-config/${type}"`)
-        .join("\n")
+    const imports = configType.map((type) => `import { ${type}Config } from "@halvaradop/eslint-config/${type}"`).join("\n")
     const configs = configType.map((type) => `...${type}Config`).join(",")
     return `
 ${imports}

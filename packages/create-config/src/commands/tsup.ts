@@ -1,7 +1,7 @@
 import fs from "fs/promises"
 import { confirm } from "@inquirer/prompts"
 import * as colors from "yoctocolors"
-import { addScripts, exists } from "../utils/index.js"
+import { updatePackageJson, exists } from "../utils/index.js"
 import { info, warn, error } from "../utils/logger.js"
 import { generateTsupConfigTemplate } from "../templates/tsup.js"
 
@@ -19,12 +19,14 @@ export const tsupCommand = async (options: InstallOptions) => {
     }
 }
 
-export const installTsup = async ({ force = false }: InstallOptions) => {
+export const installTsup = async ({ force }: InstallOptions) => {
     const matchConfigFiles = exists("tsup.config.{js,cjs,ts,json}")
 
-    if (matchConfigFiles && !force) {
+    if (matchConfigFiles.length > 0 && force === false) {
         warn(colors.yellow("Detected existing Tsup configuration files:"))
-        matchConfigFiles.forEach((filePath) => warn(colors.gray(`  - ${filePath}`)))
+        matchConfigFiles.forEach((filePath) => {
+            warn(colors.gray(`  - ${filePath}`))
+        })
 
         const overwrite = await confirm({
             message: "Existing Tsup config files detected. Overwrite with recommended settings?",
@@ -43,7 +45,12 @@ export const installTsup = async ({ force = false }: InstallOptions) => {
     try {
         await fs.writeFile(configPath, configContent, "utf-8")
         info(colors.green(`  - Tsup config created: ${configPath}`))
-        await addScripts("Tsup", {
+
+        await updatePackageJson("Tsup", "devDependencies", {
+            tsup: "^8.3.6",
+            "@halvaradop/tsup-config": "latest",
+        })
+        await updatePackageJson("Tsup", "scripts", {
             dev: "tsup --watch",
             build: "tsup",
         })

@@ -5,6 +5,7 @@
   "description": "Reusable tsup build configuration for @halvaradop projects.",
   "type": "module",
   "scripts": {
+    "dev": "tsup tsup.config.js --watch",
     "build": "tsup tsup.config.js && pnpm clean:cts",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
@@ -31,16 +32,15 @@
   ],
   "author": "Hernan Alvarado <hernanvid123@gmail.com>",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "types": "./dist/tsup.config.d.ts",
       "require": "./dist/tsup.config.cjs",
       "import": "./dist/tsup.config.js"
     }
-  },
-  "devDependencies": {
-    "tsup": "^8.3.6",
-    "@halvaradop/tsconfig": "workspace:*"
   },
   "peerDependencies": {
     "tsup": "^8.0.0"
