@@ -1,6 +1,6 @@
 {
   "name": "@halvaradop/create-config",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": false,
   "description": "CLI to streamline and manage @halvaradop configuration packages efficiently.",
   "type": "module",

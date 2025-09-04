@@ -1,6 +1,6 @@
 {
   "name": "@halvaradop/tsconfig",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "private": false,
   "description": "Reusable TypeScript configuration presets for @halvaradop projects.",
   "type": "module",
