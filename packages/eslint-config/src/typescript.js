@@ -1,4 +1,5 @@
-import tseslint from "typescript-eslint"
+import tsPlugin from "@typescript-eslint/eslint-plugin"
+import tsParser from "@typescript-eslint/parser"
 import globals from "globals"
 import onlyWarn from "eslint-plugin-only-warn"
 import { baseConfig } from "./base.js"
@@ -20,7 +21,7 @@ export const tsConfig = [
                 ...globals.node,
                 ...globals.es2021,
             },
-            parser: tseslint.parser,
+            parser: tsParser,
             parserOptions: {
                 project: ["./packages/*/tsconfig.json", "**/tsconfig.json", "**/tsconfig.*.json"],
                 ecmaVersion: "latest",
@@ -28,16 +29,17 @@ export const tsConfig = [
                 ecmaFeatures: {
                     jsx: true,
                 },
+                tsconfigRootDir: process.cwd(),
             },
         },
         plugins: {
-            "@typescript-eslint": tseslint.plugin,
+            "@typescript-eslint": tsPlugin,
             onlyWarn,
         },
         rules: {
-            ...tseslint.configs.recommended.rules,
-            ...tseslint.configs.recommendedTypeChecked.rules,
-            ...tseslint.configs.stylistic.rules,
+            ...tsPlugin.configs.recommended.rules,
+            ...tsPlugin.configs["recommended-requiring-type-checking"].rules,
+            ...tsPlugin.configs.stylistic.rules,
             "no-unused-vars": "off",
             "@typescript-eslint/no-unused-vars": [
                 "warn",
