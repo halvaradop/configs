@@ -1,5 +1,4 @@
-import tsPlugin from "@typescript-eslint/eslint-plugin"
-import tsParser from "@typescript-eslint/parser"
+import tseslint from "typescript-eslint"
 import globals from "globals"
 import onlyWarn from "eslint-plugin-only-warn"
 import { baseConfig } from "./base.js"
@@ -21,7 +20,7 @@ export const tsConfig = [
                 ...globals.node,
                 ...globals.es2021,
             },
-            parser: tsParser,
+            parser: tseslint.parser,
             parserOptions: {
                 project: ["./packages/*/tsconfig.json", "**/tsconfig.json", "**/tsconfig.*.json"],
                 ecmaVersion: "latest",
@@ -33,13 +32,13 @@ export const tsConfig = [
             },
         },
         plugins: {
-            "@typescript-eslint": tsPlugin,
+            "@typescript-eslint": tseslint.plugin,
             onlyWarn,
         },
         rules: {
-            ...tsPlugin.configs.recommended.rules,
-            ...tsPlugin.configs["recommended-requiring-type-checking"].rules,
-            ...tsPlugin.configs.stylistic.rules,
+            ...tseslint.configs.recommended.rules,
+            ...tseslint.configs.recommendedTypeChecked.rules,
+            ...tseslint.configs.stylistic.rules,
             "no-unused-vars": "off",
             "@typescript-eslint/no-unused-vars": [
                 "warn",
@@ -118,6 +117,16 @@ export const tsConfig = [
             "**/public/**",
             "**/*.min.js",
             "**/vendor/**",
+            /**
+             * Ignore configuration files
+             */
+            "**/vite.config.{ts,cts,mts}",
+            "**/vitest.config.{ts,cts,mts}",
+            "**/tsup.config.{ts,cts,mts}",
+            "**/eslint.config.{ts,cts,mts}",
+            "**/prettier.config.{ts,cts,mts}",
+            "**/tailwind.config.{ts,cts,mts}",
+            "**/postcss.config.{ts,cts,mts}",
         ],
     },
 ]
