@@ -8,8 +8,6 @@
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "moduleDetection": "force",
-    "declaration": true,
-    "declarationMap": true,
     "strict": true,
     "allowJs": true,
     "checkJs": true,
