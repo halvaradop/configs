@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Disabled `declaration` and `declarationMap` options in the base TypeScript configuration file. [#20](https://github.com/halvaradop/configs/pull/20)
+
 ## [1.1.1] - 2025-09-04
 
 ### Changed
