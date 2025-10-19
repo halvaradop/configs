@@ -28,6 +28,7 @@ export const tsConfig = [
                 ecmaFeatures: {
                     jsx: true,
                 },
+                tsconfigRootDir: process.cwd(),
             },
         },
         plugins: {
@@ -116,6 +117,16 @@ export const tsConfig = [
             "**/public/**",
             "**/*.min.js",
             "**/vendor/**",
+            /**
+             * Ignore configuration files
+             */
+            "**/vite.config.{ts,cts,mts}",
+            "**/vitest.config.{ts,cts,mts}",
+            "**/tsup.config.{ts,cts,mts}",
+            "**/eslint.config.{ts,cts,mts}",
+            "**/prettier.config.{ts,cts,mts}",
+            "**/tailwind.config.{ts,cts,mts}",
+            "**/postcss.config.{ts,cts,mts}",
         ],
     },
 ]

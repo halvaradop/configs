@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.3] - 2025-10-19
+
+### Changed
+
+- Ignored configuration files from common libraries and packages like `tsup`, `tailwind`, `vite`, `vitest`, and more to avoid ESLint errors that are unrecognizable by typescript-eslint. [#20](https://github.com/halvaradop/configs/pull/20)
+
+## [1.2.2] - 2025-10-19
+
+### Changed
+
+- Updated the `tsconfigRootDir` in `parserOptions` of the TypeScript configuration to avoid errors unrecognizable by typescript-eslint. [#20](https://github.com/halvaradop/configs/pull/20)
+
+## [1.2.1] - 2025-10-19
+
+### Changed
+
+- Updated the `parserOptions` in the TypeScript configuration and added configuration files to ignore list to avoid errors unrecognizable by typescript-eslint. [#20](https://github.com/halvaradop/configs/pull/20)
+
 ## [1.2.0] - 2025-09-04
 
 ### Changed
