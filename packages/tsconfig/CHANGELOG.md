@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.2.1] - 2025-10-21
 
-### Addex
+### Added
 
 - Included missing configuration JSON files in the published npm package. [#22](https://github.com/halvaradop/configs/pull/22)
 
