@@ -1,6 +1,6 @@
 {
   "name": "@halvaradop/tsconfig",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": false,
   "description": "Reusable TypeScript configuration presets for @halvaradop projects.",
   "type": "module",
@@ -26,7 +26,10 @@
   "author": "Hernan Alvarado <hernanvid123@gmail.com>",
   "license": "MIT",
   "files": [
-    "dist"
+    "dist",
+    "tsconfig.base.json",
+    "nextjs.json",
+    "react.json"
   ],
   "peerDependencies": {
     "typescript": "^5.0.0"
